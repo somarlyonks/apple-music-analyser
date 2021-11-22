@@ -1,0 +1,11 @@
+{
+  "extends": [
+    "config:base"
+  ],
+  "ignoreDeps": [
+    "@types/react",
+    "typescript",
+    "@commitlint/cli",
+    "@commitlint/config-conventional"
+  ]
+}
