@@ -1,0 +1,67 @@
+.footer {
+  background-color: var(--color-bg2);
+  color: var(--color-fg3);
+  font-size: 0.85em;
+
+  hr {
+    width: 100%;
+    border-top: 1px solid var(--color-bg3);
+  }
+
+  &__content {
+    padding-top: 1.2ch;
+    padding-bottom: 2.6ch;
+    > div {
+      margin: 0.7ch 0;
+    }
+  }
+
+  .vercel-icon {
+    display: flex;
+  }
+
+  span {
+    margin: 0 0.25ch;
+  }
+  a {
+    color: var(--color-fg2);
+    &:link,
+    &:visited {
+      text-decoration: none;
+    }
+    &:hover,
+    &:active {
+      color: var(--color-fg);
+      text-decoration: underline;
+    }
+  }
+
+  svg {
+    height: 1em;
+    fill: currentColor;
+  }
+}
+
+.results-section {
+  h2 {
+    margin: 2em 0 1em;
+  }
+}
+
+.results {
+  margin: -1ch;
+
+  .result {
+    margin: 1ch;
+    padding: 1ch;
+    &.artist,
+    &.song {
+      border: 1px solid var(--color-fg3);
+    }
+
+    h3,
+    h4 {
+      margin: 0;
+    }
+  }
+}

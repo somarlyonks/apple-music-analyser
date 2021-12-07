@@ -22,6 +22,7 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
+    "incremental": true,
     "isolatedModules": true,
     "jsx": "preserve"
   },

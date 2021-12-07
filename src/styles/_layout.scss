@@ -1,0 +1,8 @@
+$contentWidth: 980px;
+
+.main__content,
+.footer__content {
+  max-width: $contentWidth;
+  padding-left: max(2ch, env(safe-area-inset-left));
+  padding-right: max(2ch, env(safe-area-inset-right));
+}
