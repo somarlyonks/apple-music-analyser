@@ -4,6 +4,7 @@ import OcticonGithub from '@csszen/icons.github'
 
 import Vercel from '../components/icons/Vercel'
 import Apple from '../components/icons/Apple'
+import Hr from '../components/Hr'
 
 
 export default function Footer () {
@@ -27,7 +28,7 @@ export default function Footer () {
                     </Flex>
                 </Flex>
 
-                <Flex><hr /></Flex>
+                <Hr />
 
                 <Flex>
                     <Flex>Copyright © 2021 Yang.</Flex>
