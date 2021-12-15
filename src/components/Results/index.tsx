@@ -1,13 +1,13 @@
-// import {HeatMapGrid} from 'react-grid-heatmap'
 import Flex from '@csszen/components.flex'
 
 import {IAnalyseResults} from '../../libs/computation'
 
 import MonthChart from './MonthChart'
-import NumberLocale from './NumberLocale'
+import NumberLocale from '../NumberLocale'
 import ResultError from '../ResultError'
-import ArtistResultCard from './ArtistResultCard'
-import SongResultRow from './SongResultRow'
+import ResultsSectionSongs from './ResultsSectionSongs'
+import ResultsSectionArtists from './ResultsSectionArtists'
+import Hr from '../Hr'
 
 
 export default function Results ({
@@ -24,28 +24,20 @@ export default function Results ({
     const dayswithoutmusic = daysTodayCount - songPlayDayResults.length
 
     return (
-        <Flex className="results-wrapper" verticle>
+        <Flex className="results-container" verticle grow>
             <Flex className="results-section overview" verticle>
                 <h2>Overview</h2>
             </Flex>
 
-            <Flex className="results-section songs" verticle>
-                <h2>Most Played Songs</h2>
-                <Flex className="results" verticle>
-                    {songPlayResults.slice(0, 10).map(song => (
-                        <SongResultRow song={song} key={song.key} />
-                    ))}
-                </Flex>
-            </Flex>
+            <Hr />
 
-            <Flex className="results-section artists" verticle>
-                <h2>Most Played Artists</h2>
-                <Flex className="results" wrap>
-                    {artistPlayResults.slice(0, 10).map(artist => (
-                        <ArtistResultCard artist={artist} key={artist.name} />
-                    ))}
-                </Flex>
-            </Flex>
+            <ResultsSectionSongs results={songPlayResults} />
+
+            <Hr />
+
+            <ResultsSectionArtists artists={artistPlayResults} />
+
+            <Hr />
 
             <Flex className="results-section months" verticle>
                 <h2>Played Hours by Month</h2>
@@ -54,6 +46,7 @@ export default function Results ({
                 </Flex>
             </Flex>
 
+            <Hr />
 
             <Flex className="results-section days" verticle>
                 <h2>Playing Time by Date</h2>

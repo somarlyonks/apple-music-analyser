@@ -44,6 +44,11 @@ export interface IRecord {
     'UTC Offset In Seconds': string // '28800'
 }
 
+export interface IResult {
+    plays: number
+    time: number
+}
+
 export interface IRecordEvent {
     id: string,
     datetime: Date,
@@ -53,31 +58,23 @@ export interface IRecordEvent {
     ended: boolean,
 }
 
-export interface ISongPlayResult {
+export interface ISongPlayResult extends IResult {
     key: string
-    plays: number
-    time: number
     name: string
     artist: string
 }
 
-export interface IArtistPlayResult {
+export interface IArtistPlayResult extends IResult {
     name: string
-    plays: number
-    time: number
     songs: ISongPlayResult[]
 }
 
-export interface ISongPlayDayResult {
+export interface ISongPlayDayResult extends IResult {
     date: string
-    plays: number
-    time: number
 }
 
-export interface ISongPlayMonthResult {
+export interface ISongPlayMonthResult extends IResult {
     month: string
-    plays: number
-    time: number
 }
 
 export interface IAnalyseResults {
@@ -163,7 +160,7 @@ export class RecordEventFormat {
     }
 }
 
-export class RecordFilter {
+class RecordFilter {
     public static isPlay (record: IRecord): boolean {
         return Boolean(
             record['Event Type'] && record['Event Type'].startsWith('PLAY')
@@ -196,7 +193,7 @@ export class RecordFilter {
     }
 }
 
-export class RecordMapper {
+class RecordMapper {
     public static hashPlay (record: IRecord): string {
         return `'${record['Song Name']}' by ${record['Artist Name']}`
     }
@@ -210,6 +207,28 @@ export class RecordMapper {
             duration: Number(record['Play Duration Milliseconds']),
             ended: record['End Reason Type'] === 'NATURAL_END_OF_TRACK',
         }
+    }
+}
+
+export class ResultsMapper {
+    public static times<T extends IResult> (results: T[]): number[] {
+        return results.map(x => x.time)
+    }
+
+    public static normalizeResultsTimes<T extends IResult> (results: T[]): T[] {
+        const times = ResultsMapper.times(results)
+        const max = Math.max(...times)
+        const min = Math.min(...times)
+        const range = max - min
+        return results.map(result => Object.assign({}, result, {
+            time: (result.time - min) / range,
+        }))
+    }
+
+    public static biasResultsTimes<T extends IResult> (results: T[], bias: number = 0.5, amplify: number = 1): T[] {
+        return ResultsMapper.normalizeResultsTimes(results).map(result => Object.assign({}, result, {
+            time: (bias + (result.time * (1 - bias))) * amplify,
+        }))
     }
 }
 
@@ -274,3 +293,18 @@ export class Analyser {
         return this.records.filter(predicate).map(mapper)
     }
 }
+
+// function collectHourRecord (record: IRecord, obj: number[][]) {
+//     const date = new Date(record['Event End Timestamp'])
+//     const day = new Date(+new Date(date) + parseInt(record['UTC Offset In Seconds'], 10) * 1000)
+//     const dayint = day.getUTCDay()
+//     const hoursint = day.getUTCHours()
+//     if (
+//         dayint && dayint < 7 && dayint > 0 &&
+//         hoursint &&
+//         (obj[dayint][hoursint] ?? Number(obj[dayint][hoursint])) && !isNaN(Number(obj[dayint][hoursint])) &&
+//         !isNaN(Number(record['Play Duration Milliseconds']))
+//     ) {
+//         obj[dayint][hoursint] = Number(obj[dayint][hoursint]) + Number(record['Play Duration Milliseconds'])
+//     }
+// }

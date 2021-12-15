@@ -34,7 +34,7 @@ export default function Index () {
     return (
         <Flex verticle grow>
             <Flex className="main" grow justifyContent="center">
-                <Flex className="main__content">
+                <Flex className="main__content" grow>
                     {results
                         ? <Results {...results} />
                         : <Banner resolving={resolving} dataHandler={dataHandler as ANY} />

@@ -3,11 +3,6 @@
   color: var(--color-fg3);
   font-size: 0.85em;
 
-  hr {
-    width: 100%;
-    border-top: 1px solid var(--color-bg3);
-  }
-
   &__content {
     padding-top: 1.2ch;
     padding-bottom: 2.6ch;
@@ -42,26 +37,91 @@
   }
 }
 
+.results-container {
+  > [role="separator"] {
+    margin: 4rem -100vw;
+  }
+}
+
 .results-section {
+  // @include debug;
   h2 {
-    margin: 2em 0 1em;
+    margin: 0 0 0.5em;
+    font-size: 3em;
+  }
+}
+
+.result-card {
+  margin: 0 2ch 2ch;
+  width: min(40%, 300px);
+  position: relative;
+  &.song {
+    &::after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+  }
+
+  &__content {
+    padding: 2ch;
+  }
+
+  .result-card__content {
+    hr {
+      margin: 2ch 0;
+    }
+  }
+
+  .result-card__title,
+  .result-card__play {
+    color: var(--color-bg2);
+  }
+  .result-card__title {
+    .song {
+      font-size: 2em;
+      margin: 0;
+      font-weight: bold;
+    }
+    .artist {
+      font-size: 1.23em;
+      font-weight: bold;
+    }
+  }
+  .result-card__play {
+    font-size: 1.1em;
+  }
+}
+
+.results-section {
+  // TODO: update this to semantic selectors
+  &.songs {
+    .results-wrapper {
+      margin-left: 8ch;
+    }
+  }
+  &.artists {
+    .results-wrapper {
+      margin-right: 8ch;
+    }
   }
 }
 
 .results {
-  margin: -1ch;
-
   .result {
-    margin: 1ch;
-    padding: 1ch;
+    margin: 1ch 0;
     &.artist,
     &.song {
-      border: 1px solid var(--color-fg3);
+      // @include debug;
     }
 
     h3,
     h4 {
       margin: 0;
+    }
+
+    sup[role="tooltip"] {
+      color: var(--red);
     }
   }
 }

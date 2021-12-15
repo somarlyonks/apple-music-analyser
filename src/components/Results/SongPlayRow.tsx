@@ -24,9 +24,7 @@ export default function SongPlayRow ({song, style}: IProps) {
                 <Flex><PlaysLocale plays={song.plays} /></Flex>
             </Flex>
             <Flex justifyContent="space-between">
-                <span className="ellipsis">{song.artist}{
-                    <Asterisk title="This artist also appears in most played artists." />
-                }</span>
+                <span className="ellipsis">{song.artist}{<Asterisk title="This artist also appears in most played artists." />}</span>
                 <PlayDuration className="ellipsis" time={song.time} />
             </Flex>
         </Flex>

@@ -6,9 +6,9 @@ import {ISongPlayResult} from './computation'
 async function searchItunes (term: string) {
     const url = `https://itunes.apple.com/search?term=${term}&country=US&limit=1&media=music&entity=musicTrack`
     const response = await fetch(url)
-    const result = await response.json()
+    const {results} = await response.json()
 
-    if (result.data.results.length) return result.data.results[0]
+    if (results?.length) return results[0]
     throw new Error('failed to search Itunes')
 }
 
