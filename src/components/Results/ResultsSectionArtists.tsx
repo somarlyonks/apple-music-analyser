@@ -18,7 +18,6 @@ interface IProps {
 
 const getElementCssProperty = ($el: HTMLElement, key: string) => getComputedStyle($el).getPropertyValue(key)
 
-
 export default function ResultsSectionArtists ({artists}: IProps) {
     const [inView, $observeAnchor] = useInViewObserver({
         rootMargin: '50px 0px 50px 0px',

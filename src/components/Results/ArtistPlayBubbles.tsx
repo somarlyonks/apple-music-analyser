@@ -3,7 +3,7 @@ import ContainerDimensions from 'react-container-dimensions'
 
 import {IArtistPlayResult, ResultsMapper} from '../../libs/computation'
 
-import BubbleChart from '../BubbleChart'
+import BubbleChart from '../charts/BubbleChart'
 
 
 interface IProps {

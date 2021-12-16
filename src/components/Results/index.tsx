@@ -2,11 +2,11 @@ import Flex from '@csszen/components.flex'
 
 import {IAnalyseResults} from '../../libs/computation'
 
-import MonthChart from './MonthChart'
 import NumberLocale from '../NumberLocale'
 import ResultError from '../ResultError'
 import ResultsSectionSongs from './ResultsSectionSongs'
 import ResultsSectionArtists from './ResultsSectionArtists'
+import ResultsSectionMonths from './ResultsSectionMonths'
 import Hr from '../Hr'
 
 
@@ -39,12 +39,7 @@ export default function Results ({
 
             <Hr />
 
-            <Flex className="results-section months" verticle>
-                <h2>Played Hours by Month</h2>
-                <Flex className="results">
-                    <MonthChart months={songPlayMonthResults} />
-                </Flex>
-            </Flex>
+            <ResultsSectionMonths results={songPlayMonthResults} />
 
             <Hr />
 

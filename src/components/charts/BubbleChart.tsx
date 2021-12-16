@@ -3,7 +3,7 @@ import {useCallback, useEffect, useState} from 'react'
 import * as d3 from 'd3'
 import {useSprings, animated, config} from 'react-spring'
 
-import {red} from '../libs/constants'
+import {red} from '../../libs/constants'
 
 
 interface IPropNode {
@@ -79,15 +79,15 @@ export default function BubbleChart ({
             preserveAspectRatio="xMinYMin meet"
         >
             <g>
-                {artifacts.map((artifact, index) => (
+                {springs.map((spring, index) => (
                     <animated.circle
-                        key={artifact.id}
+                        key={artifacts[index].id}
                         stroke={red}
                         strokeWidth={bubbleStrokeWidth}
-                        r={springs[index].r}
-                        fill={springs[index].fill}
-                        cx={springs[index].x}
-                        cy={springs[index].y}
+                        r={spring.r}
+                        fill={spring.fill}
+                        cx={spring.x}
+                        cy={spring.y}
                         onMouseEnter={activatedIndexHandler(index)}
                         onMouseLeave={activatedIndexHandler(-1)}
                     />
