@@ -1,9 +1,9 @@
 import Flex from '@csszen/components.flex'
 import ContainerDimensions from 'react-container-dimensions'
 
-import {IArtistPlayResult, ResultsMapper} from '../../libs/computation'
+import {IArtistPlayResult, ResultsMapper} from '../../../libs/computation'
 
-import BubbleChart from '../charts/BubbleChart'
+import BubbleChart from '../../charts/BubbleChart'
 
 
 interface IProps {

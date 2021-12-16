@@ -1,9 +1,9 @@
 import Flex from '@csszen/components.flex'
 import {useTrail, animated, to} from 'react-spring'
 
-import {ISongPlayResult} from '../../libs/computation'
-import biasedRatio from '../../libs/biasedRatio'
-import useInViewObserver from '../../libs/useInViewObserver'
+import {ISongPlayResult} from '../../../libs/computation'
+import biasedRatio from '../../../libs/biasedRatio'
+import useInViewObserver from '../../../libs/useInViewObserver'
 
 import SongPlayRow from './SongPlayRow'
 import SongPlayCard from './SongPlayCard'

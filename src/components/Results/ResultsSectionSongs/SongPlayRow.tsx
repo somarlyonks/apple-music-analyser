@@ -1,10 +1,10 @@
 import {CSSProperties} from 'react'
 import Flex from '@csszen/components.flex'
 
-import {ISongPlayResult} from '../../libs/computation'
+import {ISongPlayResult} from 'src/libs/computation'
 
-import PlaysLocale from './PlaysLocale'
-import PlayDuration from './PlayDuration'
+import PlaysLocale from '../PlaysLocale'
+import PlayDuration from '../PlayDuration'
 
 
 interface IProps {

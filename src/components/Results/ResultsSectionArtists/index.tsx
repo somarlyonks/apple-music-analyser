@@ -3,10 +3,10 @@ import Flex from '@csszen/components.flex'
 
 import {useSprings} from 'react-spring'
 
-import {IArtistPlayResult} from '../../libs/computation'
-import biasedRatio from '../../libs/biasedRatio'
-import useInViewObserver from '../../libs/useInViewObserver'
-import {red} from '../../libs/constants'
+import {IArtistPlayResult} from 'src/libs/computation'
+import biasedRatio from 'src/libs/biasedRatio'
+import useInViewObserver from 'src/libs/useInViewObserver'
+import {red} from 'src/libs/constants'
 
 import ArtistPlayBubbles from './ArtistPlayBubbles'
 import ArtistPlayRow from './ArtistPlayRow'

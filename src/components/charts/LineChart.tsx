@@ -1,24 +1,21 @@
-import {useEffect, useRef, useState, DependencyList, RefObject, useCallback} from 'react'
+import {useEffect, useCallback} from 'react'
 import {useSpring, animated, config} from 'react-spring'
 
 import {red} from 'src/libs/constants'
+import useSvgPathLength from 'src/libs/useSvgPathLength'
+import prop from 'src/libs/prop'
 
+
+interface IPoint2 {
+    x: number
+    y: number
+}
 
 interface IProps {
     datas: IPoint2[]
     width: number
     height: number
     inView?: boolean
-}
-
-function useSvgPathLength (deps: DependencyList): [number, RefObject<SVGPathElement>] {
-    const $path = useRef<SVGPathElement>(null)
-    const [length, setLength] = useState(0)
-    useEffect(() => {
-        if ($path.current) setLength($path.current.getTotalLength())
-    }, deps)
-
-    return [length, $path]
 }
 
 export default function LineChart ({datas, width, height, inView}: IProps) {
@@ -39,15 +36,6 @@ export default function LineChart ({datas, width, height, inView}: IProps) {
             )}
         </svg>
     )
-}
-
-interface IPoint2 {
-    x: number
-    y: number
-}
-
-function prop<T> (key: keyof T) {
-    return (obj: T) => obj[key]
 }
 
 interface IScaleOptions {

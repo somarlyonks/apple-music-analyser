@@ -1,10 +1,10 @@
 import {CSSProperties} from 'react'
 import Flex from '@csszen/components.flex'
-import {animated, useSpring, config} from 'react-spring'
+import {animated} from 'react-spring'
 
-import {IArtistPlayResult} from '../../libs/computation'
+import {IArtistPlayResult} from '../../../libs/computation'
 
-import PlayDuration from './PlayDuration'
+import PlayDuration from '../PlayDuration'
 
 
 interface IProps {

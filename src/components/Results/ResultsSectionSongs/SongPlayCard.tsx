@@ -1,11 +1,11 @@
 import Flex from '@csszen/components.flex'
 
-import {ISongPlayResult} from '../../libs/computation'
-import useSongPost from '../../libs/useSongPost'
+import {ISongPlayResult} from 'src/libs/computation'
+import useSongPost from 'src/libs/useSongPost'
 
-import PlaysLocale from './PlaysLocale'
-import PlayDuration from './PlayDuration'
-import Hr from '../Hr'
+import PlaysLocale from '../PlaysLocale'
+import PlayDuration from '../PlayDuration'
+import Hr from '../../Hr'
 
 
 interface IProps {

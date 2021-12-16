@@ -4,10 +4,10 @@ import {IAnalyseResults} from '../../libs/computation'
 
 import NumberLocale from '../NumberLocale'
 import ResultError from '../ResultError'
+import Hr from '../Hr'
 import ResultsSectionSongs from './ResultsSectionSongs'
 import ResultsSectionArtists from './ResultsSectionArtists'
 import ResultsSectionMonths from './ResultsSectionMonths'
-import Hr from '../Hr'
 
 
 export default function Results ({
