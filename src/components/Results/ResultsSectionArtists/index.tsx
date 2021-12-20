@@ -47,6 +47,7 @@ export default function ResultsSectionArtists ({artists}: IProps) {
                             opacity: `${biasedRatio(artist.time / artists[1].time, 1 << 4)}%`,
                             ...springs[i] as unknown as ANY,
                         }} />
+                        // TODO: @sy animation to display top songs of activated artists
                     ))}
                 </Flex>
             </Flex>

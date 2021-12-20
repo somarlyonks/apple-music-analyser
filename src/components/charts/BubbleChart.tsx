@@ -3,7 +3,8 @@ import {useCallback, useEffect, useState} from 'react'
 import * as d3 from 'd3'
 import {useSprings, animated, config} from 'react-spring'
 
-import {red} from '../../libs/constants'
+import {red} from 'src/libs/constants'
+import getLinearColorByValue from 'src/libs/getLinearColorByValue'
 
 
 interface IPropNode {
@@ -95,10 +96,6 @@ export default function BubbleChart ({
             </g>
         </svg>
     )
-}
-
-function getLinearColorByValue (value: number, maxValue: number) {
-    return d3.scaleLinear(['#fff', d3.rgb(red).brighter(2)]).domain([0, maxValue])(value).toString()
 }
 
 function forceSimulationEnd (simulation: d3.Simulation<IArtifact, undefined>): Promise<void> {

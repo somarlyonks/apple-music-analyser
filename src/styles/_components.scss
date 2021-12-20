@@ -94,7 +94,6 @@
 }
 
 .results-section {
-  // TODO: update this to semantic selectors
   &.songs {
     .results-wrapper {
       margin-left: 8ch;
@@ -103,6 +102,33 @@
   &.artists {
     .results-wrapper {
       margin-right: 8ch;
+    }
+  }
+  &.days {
+    .results {
+      > svg {
+        fill: var(--color-fg2);
+        margin-bottom: 2em;
+      }
+
+      .tooltip {
+        padding: 1ch;
+        max-width: 33vw;
+        h1 {
+          font-size: 1.5em;
+          margin: 0 0 0.5ch;
+        }
+        h2 {
+          font-size: 1.2em;
+          margin: 0;
+        }
+        .abatract {
+          margin-bottom: 1ch;
+        }
+        section:not(:last-of-type) {
+          margin-bottom: 1ch;
+        }
+      }
     }
   }
 }
@@ -124,4 +150,16 @@
       color: var(--red);
     }
   }
+}
+
+.color--fg2 {
+  color: var(--color-fg2);
+}
+
+.font-weight--lighter {
+  font-weight: lighter;
+}
+
+.font-weight--normal {
+  font-weight: normal;
 }

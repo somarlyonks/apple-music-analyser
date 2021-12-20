@@ -14,16 +14,15 @@
     "@csszen/components.flex": "0.2.1",
     "@csszen/hooks.useintersectionobserver": "0.1.0",
     "@csszen/icons.github": "^1.0.0",
-    "chart.js": "3.6.0",
     "next": "12.0.7",
     "d3": "^7.2.1",
     "prop-types": "15.7.2",
     "react": "17.0.2",
-    "react-chartjs-2": "4.0.0",
     "react-container-dimensions": "^1.4.1",
     "react-csv-reader": "3.4.0",
     "react-dom": "17.0.2",
-    "react-spring": "9.3.2"
+    "react-spring": "9.3.2",
+    "react-tooltip": "4.2.21"
   },
   "devDependencies": {
     "@commitlint/cli": "15.0.0",

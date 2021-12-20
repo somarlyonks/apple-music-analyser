@@ -1,6 +1,7 @@
 import conjunct from './conjunct'
 import groupBy from './groupby'
 import sortBy from './sortby'
+import formatDate from './formatDate'
 
 
 export interface IRecord {
@@ -71,6 +72,9 @@ export interface IArtistPlayResult extends IResult {
 
 export interface ISongPlayDayResult extends IResult {
     date: string
+    songCount: number
+    song: ISongPlayResult
+    artist: IArtistPlayResult
 }
 
 export interface ISongPlayMonthResult extends IResult {
@@ -85,6 +89,10 @@ export interface IAnalyseResults {
 }
 
 const sortByTime = sortBy('time', true)
+
+const sortByDate = <T extends {date: string}> (xs: T[]) => {
+    return xs.sort((l, r) => +new Date(l.date) - +new Date(r.date))
+}
 
 const sortByMonth = <T extends {month: string}> (xs: T[]) => {
     return xs.sort((l, r) => +new Date(l.month) - +new Date(r.month))
@@ -123,7 +131,7 @@ function mergeSongRecordEvents (recordEvents: IRecordEvent[]): ISongPlayResult[]
         plays: sumPlayCount(songRecordEvents),
         name: songRecordEvents[0].song,
         artist: songRecordEvents[0].artist,
-    }))).slice(0, 10)
+    })))
 }
 
 function mergeArtistRecordEvents (recordEvents: IRecordEvent[]): IArtistPlayResult[] {
@@ -131,8 +139,8 @@ function mergeArtistRecordEvents (recordEvents: IRecordEvent[]): IArtistPlayResu
         name,
         time: sumDuration(artistRecordEvents),
         plays: sumPlayCount(artistRecordEvents),
-        songs: mergeSongRecordEvents(artistRecordEvents),
-    }))).slice(0, 10)
+        songs: mergeSongRecordEvents(artistRecordEvents).slice(0, 10),
+    })))
 }
 
 function isValidTimestamp (timestampString: string) {
@@ -145,11 +153,7 @@ function resetRecordTimestampOffset (record: IRecord, timestampKey: keyof IRecor
 
 export class RecordEventFormat {
     public static date (recordEvent: IRecordEvent) {
-        return new Date(recordEvent.datetime).toLocaleDateString(undefined, {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-        })
+        return formatDate(recordEvent.datetime)
     }
 
     public static month (recordEvent: IRecordEvent) {
@@ -263,18 +267,25 @@ export class Analyser {
     }
 
     public get songPlayResults (): ISongPlayResult[] {
-        return mergeSongRecordEvents(this.playEvents)
+        return mergeSongRecordEvents(this.playEvents).slice(0, 10)
     }
 
     public get artistPlayResults (): IArtistPlayResult[] {
-        return mergeArtistRecordEvents(this.playEvents)
+        return mergeArtistRecordEvents(this.playEvents).slice(0, 10)
     }
 
     public get songPlayDayResults (): ISongPlayDayResult[] {
-        return mergeRecordEvents(this.playEvents, RecordEventFormat.date, ([date, recordEvents]) => ({
-            date,
-            time: sumDuration(recordEvents),
-            plays: sumPlayCount(recordEvents),
+        return sortByDate(mergeRecordEvents(this.playEvents, RecordEventFormat.date, ([date, recordEvents]) => {
+            const songs = mergeSongRecordEvents(recordEvents)
+            const artists = mergeArtistRecordEvents(recordEvents)
+            return {
+                date,
+                time: sumDuration(recordEvents),
+                plays: sumPlayCount(recordEvents),
+                songCount: songs.length,
+                song: songs[0],
+                artist: artists[0],
+            }
         }))
     }
 

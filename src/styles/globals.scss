@@ -83,4 +83,8 @@ hr {
   cursor: help;
 }
 
+rect:focus {
+  outline: none;
+}
+
 @import "components";
