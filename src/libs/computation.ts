@@ -59,6 +59,15 @@ export interface IRecordEvent {
     ended: boolean,
 }
 
+export interface IOverviewPlayResult extends IResult {
+    year: number
+    dayCount: number
+    songCount: number
+    song: ISongPlayResult
+    artistCount: number
+    artist: IArtistPlayResult
+}
+
 export interface ISongPlayResult extends IResult {
     key: string
     name: string
@@ -86,6 +95,7 @@ export interface ISongPlayHourResult extends IResult {
 }
 
 export interface IAnalyseResults {
+    overviewPlayResult: IOverviewPlayResult
     songPlayResults: ISongPlayResult[]
     artistPlayResults: IArtistPlayResult[]
     songPlayDayResults: ISongPlayDayResult[]
@@ -218,7 +228,7 @@ class RecordFilter {
 
 class RecordMapper {
     public static hashPlay (record: IRecord): string {
-        return `'${record['Song Name']}' by ${record['Artist Name']}`
+        return `${record['Song Name']} by ${record['Artist Name']}`
     }
 
     public static bleachRecord (record: IRecord): IRecordEvent {
@@ -235,7 +245,7 @@ class RecordMapper {
 
 export class ResultsMapper {
     public static times<T extends IResult> (results: T[]): number[] {
-        return results.map(x => x.time)
+        return results.map(result => result.time)
     }
 
     public static normalizeResultsTimes<T extends IResult> (results: T[]): T[] {
@@ -266,8 +276,9 @@ export class Analyser {
     public async read (): Promise<IAnalyseResults> {
         // it setTimeout here to unblock rendering before promise resolved
         return new Promise(resolve => setTimeout(() => resolve({
-            songPlayResults: this.songPlayResults,
-            artistPlayResults: this.artistPlayResults,
+            overviewPlayResult: this.overviewPlayResult,
+            songPlayResults: this.songPlayResults.slice(0, 10),
+            artistPlayResults: this.artistPlayResults.slice(0, 10),
             songPlayMonthResults: this.songPlayMonthResults,
             songPlayDayResults: this.songPlayDayResults,
             songPlayHourResults: this.songPlayHourResults,
@@ -288,12 +299,30 @@ export class Analyser {
         )
     }
 
+    public get overviewPlayResult (): IOverviewPlayResult {
+        const recordEvents = this.playEvents
+        const songPlayResults = this.songPlayResults
+        const artistPlayResults = this.artistPlayResults
+        const songPlayDayResults = this.songPlayDayResults
+
+        return {
+            time: sumDuration(recordEvents),
+            plays: sumPlayCount(recordEvents),
+            year: getRecentYear(),
+            dayCount: songPlayDayResults.length,
+            songCount: songPlayResults.length,
+            song: songPlayResults[0],
+            artistCount: artistPlayResults.length,
+            artist: artistPlayResults[0],
+        }
+    }
+
     public get songPlayResults (): ISongPlayResult[] {
-        return mergeSongRecordEvents(this.playEvents).slice(0, 10)
+        return mergeSongRecordEvents(this.playEvents)
     }
 
     public get artistPlayResults (): IArtistPlayResult[] {
-        return mergeArtistRecordEvents(this.playEvents).slice(0, 10)
+        return mergeArtistRecordEvents(this.playEvents)
     }
 
     public get songPlayDayResults (): ISongPlayDayResult[] {
@@ -306,7 +335,7 @@ export class Analyser {
                 plays: sumPlayCount(recordEvents),
                 songCount: songs.length,
                 song: songs[0],
-                artist: artists[0],
+                artist: Object.assign({}, artists[0], {songs: []}),
             }
         }))
     }

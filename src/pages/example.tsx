@@ -12,11 +12,11 @@ export default function Example () {
         <Flex verticle grow>
             <Flex className="main" grow justifyContent="center">
                 <Flex className="main__content" grow>
-                    <Results {...results} />
+                    <Results results={results} />
                 </Flex>
             </Flex>
             <Footer>
-                <Flex>This page is for illustraion. Go to&nbsp;<Link href="/">analyse your activities</Link>.</Flex>
+                <Flex>This page is for illustraion. Go to&nbsp;<Link href="/">generate your report</Link>.</Flex>
             </Footer>
         </Flex>
     )

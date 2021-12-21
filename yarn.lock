@@ -220,10 +220,17 @@
   dependencies:
     core-js "^3.0.0"
 
-"@csszen/icons.github@^1.0.0":
+"@csszen/icons.github@1.0.0":
   version "1.0.0"
   resolved "https://node.bit.dev/@csszen/icons.github/-/@csszen-icons.github-1.0.0.tgz#f4532e13459d685b8d6f84776a57518ccdc8ef87"
   integrity sha1-9FMuE0WdaFuNb4R3aldRjM3I74c=
+  dependencies:
+    core-js "^3.0.0"
+
+"@csszen/icons.octiconupload@1.0.1":
+  version "1.0.1"
+  resolved "https://node.bit.dev/@csszen/icons.octiconupload/-/@csszen-icons.octiconupload-1.0.1.tgz#ab051e85a0fc3f5fa40a77bf6ab148a67505d460"
+  integrity sha1-qwUehaD8P1+kCne/arFIpnUF1GA=
   dependencies:
     core-js "^3.0.0"
 
@@ -621,7 +628,7 @@
     "@types/d3-interpolate" "*"
     "@types/d3-selection" "*"
 
-"@types/d3@^7.1.0":
+"@types/d3@7.1.0":
   version "7.1.0"
   resolved "https://registry.npmjs.org/@types/d3/-/d3-7.1.0.tgz#8f32a7e7f434d8f920c8b1ebdfed55e18c033720"
   integrity sha512-gYWvgeGjEl+zmF8c+U1RNIKqe7sfQwIXeLXO5Os72TjDjCEtgpvGBvZ8dXlAuSS1m6B90Y1Uo6Bm36OGR/OtCA==
@@ -1477,7 +1484,7 @@ d3-zoom@3:
     d3-selection "2 - 3"
     d3-transition "2 - 3"
 
-d3@^7.2.1:
+d3@7.2.1:
   version "7.2.1"
   resolved "https://registry.npmjs.org/d3/-/d3-7.2.1.tgz#97eafaa6fc8cd7c564c3ace1e6678cbecf63f3ea"
   integrity sha512-E/5sP0aeK6YPXI/+4QlefvBFgmcyR2jYftId0PrYWv4Y/gW3c3thp1XG4rQzF0eUwV9tR1x05X5eWuJ6rQXvew==
@@ -2875,7 +2882,7 @@ raw-body@2.4.1:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
-react-container-dimensions@^1.4.1:
+react-container-dimensions@1.4.1:
   version "1.4.1"
   resolved "https://registry.npmjs.org/react-container-dimensions/-/react-container-dimensions-1.4.1.tgz#73a8b497f09c6b55a18a79b18a57a8327138f343"
   integrity sha512-f5WXYpsL0vAuT9hD6bSTqRYOJXFbU9JzjSZfscNT77PbdCUReLv2/aSvYBgkXyALtOBVdS/nwO5RVZgBxxWDnw==

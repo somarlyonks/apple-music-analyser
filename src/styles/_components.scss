@@ -41,12 +41,101 @@
   margin-bottom: 8rem;
 
   > [role="separator"] {
-    margin: 4rem -100vw;
+    margin: 4rem 0;
+    width: 100%;
   }
 }
 
 .results-section {
-  // @include debug;
+  &.overview {
+    &:not(.results-section--empty) {
+      background: var(--red);
+      color: var(--white);
+      min-height: 100vh;
+      > div {
+        padding-bottom: 16rem;
+      }
+
+      .results {
+        .result {
+          font-size: 2em;
+          strong {
+            margin: 0 0.5ch;
+            font-size: 1.3em;
+          }
+        }
+
+        .font-size--h2 {
+          margin: 0.5ch 0;
+          font-size: 3em;
+        }
+      }
+    }
+    &.results-section--empty {
+      .uploader {
+        > section {
+          margin: 0 0 1.5em;
+        }
+      }
+      h3 {
+        margin: 1em 0 0.5em;
+      }
+      .octicon {
+        height: 1em;
+        &-upload {
+          vertical-align: middle;
+        }
+      }
+      .file-input {
+        display: inline-block;
+        border: 1px dashed var(--blue);
+        border-radius: 0.25em;
+        padding: 0.1ch 0.25ch 0.2ch;
+        * {
+          transition: all 100ms;
+        }
+        &:hover {
+          border-style: solid;
+          * {
+            color: var(--blue);
+            fill: var(--blue);
+          }
+        }
+      }
+      .csv-reader-input {
+        display: inline-block;
+        label {
+          cursor: pointer;
+          &:hover,
+          &:active,
+          &:focus {
+            color: var(--blue);
+          }
+        }
+      }
+      input[type="file"] {
+        display: none;
+      }
+      .icon-arrow-up-right {
+        height: 0.8em;
+        vertical-align: middle;
+        fill: var(--blue);
+      }
+    }
+    > div {
+      padding-top: 8rem;
+    }
+
+    h1 {
+      font-size: 4rem;
+      margin: 0 0 0.5em;
+    }
+  }
+
+  &.songs {
+    margin-top: 4em;
+  }
+
   h2 {
     margin: 0 0 0.5em;
     font-size: 3em;
@@ -166,14 +255,15 @@
   }
 }
 
-.color--fg2 {
-  color: var(--color-fg2);
+@keyframes hero-music-drop-shadow {
+  0% {
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0));
+  }
+  to {
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
+  }
 }
 
-.font-weight--lighter {
-  font-weight: lighter;
-}
-
-.font-weight--normal {
-  font-weight: normal;
+.with-drop-shadow {
+  animation: hero-music-drop-shadow 600ms ease-in-out forwards;
 }

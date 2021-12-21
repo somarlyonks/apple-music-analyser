@@ -1,7 +1,6 @@
 import {useState, useRef, useEffect, useCallback} from 'react'
 import Flex from '@csszen/components.flex'
 
-import Banner from '../components/Banner'
 import Results from '../components/Results'
 import Footer from '../components/Footer'
 
@@ -10,7 +9,7 @@ import {IAnalyseResults, IRecord} from '../libs/computation'
 
 export default function Index () {
     const [resolving, setResolving] = useState(false)
-    const [results, setResults] = useState<IAnalyseResults | null>(null)
+    const [results, setResults] = useState<IAnalyseResults | undefined>(undefined)
 
     const workerRef = useRef<Worker>()
 
@@ -35,10 +34,7 @@ export default function Index () {
         <Flex verticle grow>
             <Flex className="main" grow justifyContent="center">
                 <Flex className="main__content" grow>
-                    {results
-                        ? <Results {...results} />
-                        : <Banner resolving={resolving} dataHandler={dataHandler as ANY} />
-                    }
+                    <Results results={results} dataHandler={dataHandler as ANY} resolving={resolving} />
                 </Flex>
             </Flex>
             <Footer />

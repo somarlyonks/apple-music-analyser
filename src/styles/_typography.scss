@@ -1,0 +1,83 @@
+$fontText: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+  "Helvetica Neue", sans-serif;
+$fontDisplay: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+  "Open Sans", "Helvetica Neue", sans-serif;
+
+html {
+  background-color: var(--color-bg);
+  font-size: calc(10px + 0.33vw);
+  color: var(--color-fg);
+}
+
+body {
+  font-family: $fontText;
+  -webkit-font-smoothing: antialiased;
+  color: var(--color-fg);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $fontDisplay;
+}
+
+h1 {
+  font-weight: 600;
+}
+
+h2 {
+  font-size: $fontSizeH2;
+}
+
+h3 {
+  font-size: $fontSizeH3;
+}
+
+p {
+  margin: 0;
+}
+
+hr {
+  border: none;
+  margin: 0;
+}
+
+[role="separator"] {
+  hr {
+    width: 100%;
+    border-top: 1px solid var(--color-bg3);
+  }
+}
+
+.color {
+  &--fg2 {
+    color: var(--color-fg2);
+  }
+}
+
+.font-weight {
+  &--lighter {
+    font-weight: lighter;
+  }
+  &--normal {
+    font-weight: normal;
+  }
+}
+
+.font-size {
+  &--h2 {
+    font-size: $fontSizeH2;
+  }
+  &--h3 {
+    font-size: $fontSizeH3;
+  }
+}
+
+.ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
