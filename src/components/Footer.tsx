@@ -1,3 +1,4 @@
+import {ReactNode} from 'react'
 import Link from 'next/link'
 import Flex from '@csszen/components.flex'
 import OcticonGithub from '@csszen/icons.github'
@@ -7,10 +8,15 @@ import Apple from '../components/icons/Apple'
 import Hr from '../components/Hr'
 
 
-export default function Footer () {
+interface IProps {
+    children?: ReactNode
+}
+
+export default function Footer ({children}: IProps) {
     return (
         <Flex className="footer" justifyContent="center">
             <Flex className="footer__content" verticle grow>
+                {children}
                 <Flex>No data ever leaves your computer and all computation is done in the browser.</Flex>
                 <Flex>Apple and Apple Music are trademarks of Apple Inc., registered in the U.S. and other countries.</Flex>
 
