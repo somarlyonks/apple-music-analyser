@@ -18,7 +18,7 @@ interface IProps {
 }
 
 export default function ResultsSectionDays ({results}: IProps) {
-    const [, $observeAnchor] = useInViewObserver()
+    const [inView, $observeAnchor] = useInViewObserver()
 
     const {heatMapDatas, xLabels, yLabels} = collectHeatMapDatas(results)
     const datas = heatMapDatas.map(heatMapData => heatMapData.map(v => v.value))
@@ -60,7 +60,7 @@ export default function ResultsSectionDays ({results}: IProps) {
                         yLabels={yLabels}
                         tipper={String}
                     />
-                    <ReactTooltip className="tooltip" place="right" effect="solid" getContent={tooltipRenderer} />
+                    {inView && <ReactTooltip className="tooltip" place="right" effect="solid" getContent={tooltipRenderer} />}
                     <Flex>
                         <Flex grow><p className="font-weight--lighter">There were <span className="font-weight--normal"><NumberLocale value={dayswithoutmusic} /></span> out of <span className="font-weight--normal"><NumberLocale value={daysTodayCount} /></span> days you didn't listen to music.</p></Flex>
                         <HeatMapChartLegend />

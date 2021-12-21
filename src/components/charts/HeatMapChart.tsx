@@ -59,7 +59,7 @@ export default function HeatMapChart ({
                         textAnchor="start"
                         dominantBaseline="middle"
                         x={-offsetX}
-                        y={getXTextY(blockSize, blockGap, i)}
+                        y={getOffsetDistance(blockSize, blockGap, i) + (blockSize + blockGap) * 0.5}
                     >{label}</text>
                 )))}
             </g>
@@ -120,8 +120,4 @@ function Block ({size, index, title, x, y, fill = 'currentcolor', borderRadius =
 
 function getOffsetDistance (size: number, gap: number, index: number) {
     return index * (size + gap)
-}
-
-function getXTextY (size: number, gap: number, index: number) {
-    return (index + 0.5) * (size + gap)
 }

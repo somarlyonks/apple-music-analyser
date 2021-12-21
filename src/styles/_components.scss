@@ -111,7 +111,7 @@
     .results {
       > svg {
         fill: var(--color-fg2);
-        margin-bottom: 2em;
+        margin-bottom: 1rem;
       }
     }
   }
@@ -133,6 +133,18 @@
         }
         section:not(:last-of-type) {
           margin-bottom: 1ch;
+        }
+      }
+    }
+  }
+  &.hours {
+    .toggle {
+      > span {
+        color: var(--red);
+        user-select: none;
+        cursor: pointer;
+        &:hover {
+          text-decoration: underline;
         }
       }
     }

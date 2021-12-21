@@ -239,6 +239,8 @@ export class ResultsMapper {
     }
 
     public static normalizeResultsTimes<T extends IResult> (results: T[]): T[] {
+        if (results.length <= 1) return results
+
         const times = ResultsMapper.times(results)
         const max = Math.max(...times)
         const min = Math.min(...times)
