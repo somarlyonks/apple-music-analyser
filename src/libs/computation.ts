@@ -81,11 +81,16 @@ export interface ISongPlayMonthResult extends IResult {
     month: string
 }
 
+export interface ISongPlayHourResult extends IResult {
+    hour: string
+}
+
 export interface IAnalyseResults {
     songPlayResults: ISongPlayResult[]
     artistPlayResults: IArtistPlayResult[]
     songPlayDayResults: ISongPlayDayResult[]
     songPlayMonthResults: ISongPlayMonthResult[]
+    songPlayHourResults: ISongPlayHourResult[]
 }
 
 const sortByTime = sortBy('time', true)
@@ -96,6 +101,10 @@ const sortByDate = <T extends {date: string}> (xs: T[]) => {
 
 const sortByMonth = <T extends {month: string}> (xs: T[]) => {
     return xs.sort((l, r) => +new Date(l.month) - +new Date(r.month))
+}
+
+const sortByHour = <T extends {hour: string}> (xs: T[]) => {
+    return xs.sort((l, r) => parseInt(l.hour, 10) - parseInt(r.hour, 10))
 }
 
 export function getRecentYear () {
@@ -148,7 +157,12 @@ function isValidTimestamp (timestampString: string) {
 }
 
 function resetRecordTimestampOffset (record: IRecord, timestampKey: keyof IRecord) {
-    return new Date(+new Date(record[timestampKey]) + parseInt(record['UTC Offset In Seconds'], 10) * 1000)
+    return new Date(
+        +new Date(record[timestampKey]) +
+        // NOTE: Apple Music log offset is oppsite to JS Date
+        parseInt(record['UTC Offset In Seconds'], 10) * 1000 +
+        new Date().getTimezoneOffset() * 60 * 1000
+    )
 }
 
 export class RecordEventFormat {
@@ -161,6 +175,11 @@ export class RecordEventFormat {
             year: 'numeric',
             month: 'long',
         })
+    }
+
+    public static hour (recordEvent: IRecordEvent) {
+        const date = new Date(recordEvent.datetime)
+        return String(date.getDay() * 24 + date.getHours())
     }
 }
 
@@ -249,6 +268,7 @@ export class Analyser {
             artistPlayResults: this.artistPlayResults,
             songPlayMonthResults: this.songPlayMonthResults,
             songPlayDayResults: this.songPlayDayResults,
+            songPlayHourResults: this.songPlayHourResults,
         })))
     }
 
@@ -297,6 +317,14 @@ export class Analyser {
         })))
     }
 
+    public get songPlayHourResults (): ISongPlayHourResult[] {
+        return sortByHour(mergeRecordEvents(this.playEvents, RecordEventFormat.hour, ([hour, recordEvents]) => ({
+            hour,
+            time: sumDuration(recordEvents),
+            plays: sumPlayCount(recordEvents),
+        })))
+    }
+
     private reduce<T> (
         predicate: (record: IRecord) => boolean,
         mapper: (record: IRecord) => T
@@ -304,18 +332,3 @@ export class Analyser {
         return this.records.filter(predicate).map(mapper)
     }
 }
-
-// function collectHourRecord (record: IRecord, obj: number[][]) {
-//     const date = new Date(record['Event End Timestamp'])
-//     const day = new Date(+new Date(date) + parseInt(record['UTC Offset In Seconds'], 10) * 1000)
-//     const dayint = day.getUTCDay()
-//     const hoursint = day.getUTCHours()
-//     if (
-//         dayint && dayint < 7 && dayint > 0 &&
-//         hoursint &&
-//         (obj[dayint][hoursint] ?? Number(obj[dayint][hoursint])) && !isNaN(Number(obj[dayint][hoursint])) &&
-//         !isNaN(Number(record['Play Duration Milliseconds']))
-//     ) {
-//         obj[dayint][hoursint] = Number(obj[dayint][hoursint]) + Number(record['Play Duration Milliseconds'])
-//     }
-// }

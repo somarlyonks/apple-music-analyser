@@ -10,6 +10,7 @@ interface IProps {
     yLabels?: string[]
     blockSize?: number
     blockGap?: number
+    blockBorderRadius?: number
     fontSize?: number
     tipper?: ITipper
 }
@@ -18,8 +19,8 @@ type ITipper = F1<N, S>
 
 export default function HeatMapChart ({
     datas,
-    xLabels = [], yLabels = [],
-    blockSize = 11, blockGap = 4, fontSize = 10,
+    xLabels = [], yLabels = [], fontSize = 10,
+    blockSize = 11, blockGap = 4, blockBorderRadius = 2,
     tipper,
 }: IProps) {
     const maxValue = Math.max(...datas.map(data => Math.max(...data.filter(v => !isNaN(v)))))
@@ -39,6 +40,7 @@ export default function HeatMapChart ({
                         gap={blockGap}
                         maxValue={maxValue}
                         index={columnIndex * datas[0].length}
+                        borderRadius={blockBorderRadius}
                         x={getOffsetDistance(blockSize, blockGap, columnIndex)}
                         tipper={tipper}
                     />
@@ -65,13 +67,14 @@ export default function HeatMapChart ({
     )
 }
 
-function Column ({datas, x, size, gap, maxValue, index, tipper}: {
+function Column ({datas, x, size, gap, maxValue, index, tipper, borderRadius}: {
     size: number
     datas: number[]
     x: number
     gap: number
     maxValue: number
     index: number
+    borderRadius: number
     tipper?: ITipper
 }) {
     return (
@@ -85,6 +88,7 @@ function Column ({datas, x, size, gap, maxValue, index, tipper}: {
                     y={getOffsetDistance(size, gap, dataIndex)}
                     fill={getLinearColorByValue(data, maxValue, {minColor: '#ebedf0'})}
                     tipper={tipper}
+                    borderRadius={borderRadius}
                 />
             )))}
         </g>

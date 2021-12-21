@@ -38,6 +38,8 @@
 }
 
 .results-container {
+  margin-bottom: 8rem;
+
   > [role="separator"] {
     margin: 4rem -100vw;
   }
@@ -104,13 +106,17 @@
       margin-right: 8ch;
     }
   }
-  &.days {
+  &.days,
+  &.hours {
     .results {
       > svg {
         fill: var(--color-fg2);
         margin-bottom: 2em;
       }
-
+    }
+  }
+  &.days {
+    .results {
       .tooltip {
         padding: 1ch;
         max-width: 33vw;
@@ -136,10 +142,6 @@
 .results {
   .result {
     margin: 1ch 0;
-    &.artist,
-    &.song {
-      // @include debug;
-    }
 
     h3,
     h4 {

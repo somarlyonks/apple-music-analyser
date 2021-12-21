@@ -8,6 +8,7 @@ import ResultsSectionSongs from './ResultsSectionSongs'
 import ResultsSectionArtists from './ResultsSectionArtists'
 import ResultsSectionMonths from './ResultsSectionMonths'
 import ResultsSectionDays from './ResultsSectionDays'
+import ResultsSectionHours from './ResultsSectionHours'
 
 
 export default function Results ({
@@ -15,6 +16,7 @@ export default function Results ({
     artistPlayResults,
     songPlayMonthResults,
     songPlayDayResults,
+    songPlayHourResults,
 }: IAnalyseResults) {
     if (songPlayResults.length <= 1) return <ResultError />
 
@@ -26,7 +28,7 @@ export default function Results ({
 
             <Hr />
 
-            <ResultsSectionSongs results={songPlayResults} />
+            <ResultsSectionSongs results={songPlayResults} artists={artistPlayResults} />
 
             <Hr />
 
@@ -42,15 +44,7 @@ export default function Results ({
 
             <Hr />
 
-            <Flex className="results-section hours" verticle>
-                <h2>Playing Time by Hour of Day</h2>
-                {/* <HeatMapGrid
-                    square
-                    xLabels={xLabels}
-                    yLabels={yLabels}
-                    data={hoursArray}
-                /> */}
-            </Flex>
+            <ResultsSectionHours results={songPlayHourResults} />
         </Flex>
     )
 }
