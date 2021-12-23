@@ -1,0 +1,269 @@
+.footer {
+  background-color: var(--color-bg2);
+  color: var(--color-fg3);
+  font-size: 0.85em;
+
+  &__content {
+    padding-top: 1.2ch;
+    padding-bottom: 2.6ch;
+    > div {
+      margin: 0.7ch 0;
+    }
+  }
+
+  .vercel-icon {
+    display: flex;
+  }
+
+  span {
+    margin: 0 0.25ch;
+  }
+  a {
+    color: var(--color-fg2);
+    &:link,
+    &:visited {
+      text-decoration: none;
+    }
+    &:hover,
+    &:active {
+      color: var(--color-fg);
+      text-decoration: underline;
+    }
+  }
+
+  svg {
+    height: 1em;
+    fill: currentColor;
+  }
+}
+
+.results-container {
+  margin-bottom: 8rem;
+
+  > [role="separator"] {
+    margin: 4rem 0;
+    width: 100%;
+  }
+}
+
+.results-section {
+  &.overview {
+    &:not(.results-section--empty) {
+      background: var(--red);
+      color: var(--white);
+      min-height: 100vh;
+      > div {
+        padding-bottom: 16rem;
+      }
+
+      .results {
+        .result {
+          font-size: 2em;
+          strong {
+            margin: 0 0.5ch;
+            font-size: 1.3em;
+          }
+        }
+
+        .font-size--h2 {
+          margin: 0.5ch 0;
+          font-size: 3em;
+        }
+      }
+    }
+    &.results-section--empty {
+      .uploader {
+        > section {
+          margin: 0 0 1.5em;
+        }
+      }
+      h3 {
+        margin: 1em 0 0.5em;
+      }
+      .octicon {
+        height: 1em;
+        &-upload {
+          vertical-align: middle;
+        }
+      }
+      .file-input {
+        display: inline-block;
+        border: 1px dashed var(--blue);
+        border-radius: 0.25em;
+        padding: 0.1ch 0.25ch 0.2ch;
+        * {
+          transition: all 100ms;
+        }
+        &:hover {
+          border-style: solid;
+          * {
+            color: var(--blue);
+            fill: var(--blue);
+          }
+        }
+      }
+      .csv-reader-input {
+        display: inline-block;
+        label {
+          cursor: pointer;
+          &:hover,
+          &:active,
+          &:focus {
+            color: var(--blue);
+          }
+        }
+      }
+      input[type="file"] {
+        display: none;
+      }
+      .icon-arrow-up-right {
+        height: 0.8em;
+        vertical-align: middle;
+        fill: var(--blue);
+      }
+    }
+    > div {
+      padding-top: 8rem;
+    }
+
+    h1 {
+      font-size: 4rem;
+      margin: 0 0 0.5em;
+    }
+  }
+
+  &.songs {
+    margin-top: 4em;
+  }
+
+  h2 {
+    margin: 0 0 0.5em;
+    font-size: 3em;
+  }
+}
+
+.result-card {
+  margin: 0 2ch 2ch;
+  width: min(40%, 300px);
+  position: relative;
+  &.song {
+    &::after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+  }
+
+  &__content {
+    padding: 2ch;
+  }
+
+  .result-card__content {
+    hr {
+      margin: 2ch 0;
+    }
+  }
+
+  .result-card__title,
+  .result-card__play {
+    color: var(--color-bg2);
+  }
+  .result-card__title {
+    .song {
+      font-size: 2em;
+      margin: 0;
+      font-weight: bold;
+    }
+    .artist {
+      font-size: 1.23em;
+      font-weight: bold;
+    }
+  }
+  .result-card__play {
+    font-size: 1.1em;
+  }
+}
+
+.results-section {
+  &.songs {
+    .results-wrapper {
+      margin-left: 8ch;
+    }
+  }
+  &.artists {
+    .results-wrapper {
+      margin-right: 8ch;
+    }
+  }
+  &.days,
+  &.hours {
+    .results {
+      > svg {
+        fill: var(--color-fg2);
+        margin-bottom: 1rem;
+      }
+    }
+  }
+  &.days {
+    .results {
+      .tooltip {
+        padding: 1ch;
+        max-width: 33vw;
+        h1 {
+          font-size: 1.5em;
+          margin: 0 0 0.5ch;
+        }
+        h2 {
+          font-size: 1.2em;
+          margin: 0;
+        }
+        .abatract {
+          margin-bottom: 1ch;
+        }
+        section:not(:last-of-type) {
+          margin-bottom: 1ch;
+        }
+      }
+    }
+  }
+  &.hours {
+    .toggle {
+      > span {
+        color: var(--red);
+        user-select: none;
+        cursor: pointer;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.results {
+  .result {
+    margin: 1ch 0;
+
+    h3,
+    h4 {
+      margin: 0;
+    }
+
+    sup[role="tooltip"] {
+      color: var(--red);
+    }
+  }
+}
+
+@keyframes hero-music-drop-shadow {
+  0% {
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0));
+  }
+  to {
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
+  }
+}
+
+.with-drop-shadow {
+  animation: hero-music-drop-shadow 600ms ease-in-out forwards;
+}

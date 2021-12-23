@@ -11,16 +11,29 @@
     "husky": "husky install"
   },
   "dependencies": {
+    "@csszen/components.flex": "0.2.1",
+    "@csszen/hooks.useintersectionobserver": "0.1.0",
     "next": "12.0.7",
+    "@csszen/icons.github": "1.0.0",
+    "@csszen/icons.octiconupload": "1.0.1",
+    "d3": "7.2.1",
+    "prop-types": "15.7.2",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-container-dimensions": "1.4.1",
+    "react-csv-reader": "3.4.0",
+    "react-dom": "17.0.2",
+    "react-spring": "9.3.2",
+    "react-tooltip": "4.2.21"
   },
   "devDependencies": {
     "@commitlint/cli": "15.0.0",
     "@commitlint/config-conventional": "15.0.0",
     "@somarlyonks/tslint": "1.0.1",
+    "@types/d3": "7.1.0",
     "@types/react": "17.0.15",
+    "folans.d.ts": "2.0.0",
     "husky": "7.0.2",
+    "next-transpile-modules": "9.0.0",
     "sass": "1.45.1",
     "typescript": "4.5.2"
   },

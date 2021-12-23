@@ -1,0 +1,6 @@
+@mixin debug {
+  outline: 1px solid var(--color-fg2);
+}
+
+$fontSizeH2: 1.5em;
+$fontSizeH3: 1.2em;

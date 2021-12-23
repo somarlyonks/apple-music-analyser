@@ -1,0 +1,17 @@
+$contentWidth: 980px;
+
+.main__content .results-section,
+.main__content .results-section--full > div,
+.footer__content {
+  width: 100%;
+  max-width: $contentWidth;
+  padding-left: max(2ch, env(safe-area-inset-left));
+  padding-right: max(2ch, env(safe-area-inset-right));
+}
+
+.main__content {
+  .results-section--full {
+    max-width: 100%;
+    padding: 0;
+  }
+}
