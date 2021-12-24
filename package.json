@@ -17,7 +17,7 @@
     "@csszen/icons.github": "1.0.0",
     "@csszen/icons.octiconupload": "1.0.1",
     "d3": "7.2.1",
-    "prop-types": "15.7.2",
+    "prop-types": "15.8.0",
     "react": "17.0.2",
     "react-container-dimensions": "1.4.1",
     "react-csv-reader": "3.4.0",
