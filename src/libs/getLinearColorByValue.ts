@@ -1,4 +1,5 @@
-import {scaleLinear, rgb} from 'd3'
+import {rgb} from 'd3-color'
+import {scaleLinear} from 'd3-scale'
 
 import {red} from './constants'
 

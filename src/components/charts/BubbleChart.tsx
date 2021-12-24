@@ -1,6 +1,7 @@
 // tslint:disable: no-magic-numbers
 import {useCallback, useEffect, useState} from 'react'
-import * as d3 from 'd3'
+import {rgb} from 'd3-color'
+import {SimulationNodeDatum, Simulation, forceSimulation, forceCenter, forceCollide} from 'd3-force'
 import {useSprings, animated, config} from 'react-spring'
 
 import {red} from 'src/libs/constants'
@@ -12,7 +13,7 @@ interface IPropNode {
     value: number,
 }
 
-interface IArtifact extends d3.SimulationNodeDatum, IPropNode {
+interface IArtifact extends SimulationNodeDatum, IPropNode {
     //
 }
 
@@ -44,7 +45,7 @@ export default function BubbleChart ({
         y: inView ? (nodes[i]?.y ?? height / 2) : height / 2,
         r: (i === activatedIndex ? 1.1 : 1) * nodes[i].value,
         fill: i === activatedIndex
-            ? d3.rgb(red).brighter(1).toString()
+            ? rgb(red).brighter(1).toString()
             : getLinearColorByValue(nodes[i].value, nodes[0].value),
         config: config.wobbly,
     }), [inView, activatedIndex])
@@ -55,11 +56,10 @@ export default function BubbleChart ({
 
     useEffect(() => {
         const nodes = JSON.parse(JSON.stringify(artifacts)) as unknown as IArtifact[]
-        const simulation = d3
-            .forceSimulation(nodes)
+        const simulation = forceSimulation(nodes)
             .velocityDecay(0.55)
-            .force('center', d3.forceCenter().x(width / 2).y(height / 2))
-            .force('collide', d3.forceCollide(
+            .force('center', forceCenter().x(width / 2).y(height / 2))
+            .force('collide', forceCollide(
                 (d, i) => d.value * 1.01 * (i === activatedIndex ? 1.1 : 1) + bubbleStrokeWidth
             ))
 
@@ -98,7 +98,7 @@ export default function BubbleChart ({
     )
 }
 
-function forceSimulationEnd (simulation: d3.Simulation<IArtifact, undefined>): Promise<void> {
+function forceSimulationEnd (simulation: Simulation<IArtifact, undefined>): Promise<void> {
     return new Promise((resolve, reject) => {
         simulation.on('end', resolve)
         simulation.alpha(0)
