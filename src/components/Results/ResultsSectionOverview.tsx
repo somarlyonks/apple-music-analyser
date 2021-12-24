@@ -43,14 +43,12 @@ export default function ResultsSectionOverview ({results, dataHandler, resolving
 function OverviewResult ({overviewPlayResult}: Pick<IAnalyseResults, 'overviewPlayResult'>) {
     const durationSegments = formatDuration(overviewPlayResult.time)
     const durationSegment0 = durationSegments[0]
-    const durationSegment1 = durationSegments[1]
 
     const numbers = [
         overviewPlayResult.songCount,
         overviewPlayResult.artistCount,
         overviewPlayResult.dayCount,
         durationSegments[0][0],
-        (durationSegments[1] || [0])[0],
     ]
 
     const [springs] = useSprings(numbers.length, i => ({
@@ -87,9 +85,6 @@ function OverviewResult ({overviewPlayResult}: Pick<IAnalyseResults, 'overviewPl
             <Flex className="result" alignItems="baseline">
                 <span>For</span>
                 <AnimatedNumber springValue={springs[3].value} /><PluralLocale value={durationSegment0[0]} suffix={durationSegment0[1]} />
-                {durationSegment1 && (
-                    <><AnimatedNumber springValue={springs[4].value} /><PluralLocale value={durationSegment1[0]} suffix={durationSegment1[1]} /></>
-                )}
             </Flex>
         </div>
     )
