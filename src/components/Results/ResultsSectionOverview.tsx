@@ -1,8 +1,9 @@
 import Flex from '@csszen/components.flex'
 import {CSVReaderProps} from 'react-csv-reader'
-import {useSprings, animated, to, SpringValue} from 'react-spring'
+import {useSprings, animated, to, SpringValue, useSpring} from 'react-spring'
 
 import {IAnalyseResults} from 'src/libs/computation'
+import {red} from 'src/libs/constants'
 
 import Uploader from '../Uploader'
 import AppleMusic from '../icons/AppleMusic'
@@ -16,11 +17,21 @@ interface IProps {
 }
 
 // TODO: @sy Resolving spring
-// TODO: @sy empty spring
-// TODO: @sy overview stats spring
+const AnimatedFlex = animated(Flex)
+
 export default function ResultsSectionOverview ({results, dataHandler, resolving}: IProps) {
+    const [spring] = useSpring({
+        color: results ? '#fff' : '#121314',
+        background: results ? red : '#fff',
+    }, [results])
+
     return (
-        <Flex className={`results-section overview results-section--full${results ? '' : ' results-section--empty'}`} alignItems="center" verticle>
+        <AnimatedFlex
+            className={`results-section overview results-section--full${results ? '' : ' results-section--empty'}`}
+            alignItems="center"
+            verticle
+            style={spring}
+        >
             <Flex alignItems="flex-start">
                 <Flex verticle grow>
                     <h1>Apple Music Analyser</h1>
@@ -36,7 +47,7 @@ export default function ResultsSectionOverview ({results, dataHandler, resolving
                     <AppleMusic className="with-drop-shadow" />
                 </Flex>
             </Flex>
-        </Flex>
+        </AnimatedFlex>
     )
 }
 
