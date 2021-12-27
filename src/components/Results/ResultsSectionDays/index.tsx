@@ -8,7 +8,6 @@ import formatDate from 'src/libs/formatDate'
 
 import HeatMapChart from '../../charts/HeatMapChart'
 import HeatMapChartLegend from '../../charts/HeatMapChartLegend'
-import NumberLocale from '../../NumberLocale'
 import PlayDuration from '../PlayDuration'
 import PlaysLocale from '../PlaysLocale'
 
@@ -22,8 +21,6 @@ export default function ResultsSectionDays ({results}: IProps) {
 
     const {heatMapDatas, xLabels, yLabels} = collectHeatMapDatas(results)
     const datas = heatMapDatas.map(heatMapData => heatMapData.map(v => v.value))
-    const daysTodayCount = datas.reduce((r, data) => r + data.filter(v => !isNaN(v)).length, 0)
-    const dayswithoutmusic = daysTodayCount - results.length
 
     const tooltipRenderer = useCallback((dataTip: string) => {
         const index = parseInt(dataTip, 10)
@@ -62,7 +59,7 @@ export default function ResultsSectionDays ({results}: IProps) {
                     />
                     {inView && <ReactTooltip className="tooltip" place="right" effect="solid" getContent={tooltipRenderer} />}
                     <Flex>
-                        <Flex grow><p className="font-weight--lighter">There were <span className="font-weight--normal"><NumberLocale value={dayswithoutmusic} /></span> out of <span className="font-weight--normal"><NumberLocale value={daysTodayCount} /></span> days you didn't listen to music.</p></Flex>
+                        <Flex grow><span className="color--red">*</span><p className="font-weight--lighter">Hover the blocks to view details.</p></Flex>
                         <HeatMapChartLegend />
                     </Flex>
                 </Flex>

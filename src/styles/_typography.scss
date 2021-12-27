@@ -53,6 +53,9 @@ hr {
 }
 
 .color {
+  &--red {
+    color: var(--red);
+  }
   &--fg2 {
     color: var(--color-fg2);
   }
