@@ -11,7 +11,6 @@ interface IProps {
     results: ISongPlayMonthResult[]
 }
 
-// TODO: @sy fill up emtpy months
 export default function ResultsSectionMonths ({results}: IProps) {
     const [inView, $observeAnchor] = useInViewObserver()
     const datas = results.map((result, i) => ({
