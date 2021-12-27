@@ -1,6 +1,6 @@
 # apple-music-analyser
 
-Apple Music activity logs visualization.
+Apple Music activities visualization.
 
 Desktop only yet. I am not sure if there will be a new design for mobile screens at the end of 2022. See you there!
 

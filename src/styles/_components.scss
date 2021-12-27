@@ -49,8 +49,6 @@
 .results-section {
   &.overview {
     &:not(.results-section--empty) {
-      background: var(--red);
-      color: var(--white);
       min-height: 100vh;
       > div {
         padding-bottom: 16rem;
@@ -59,6 +57,7 @@
       .results {
         .result {
           font-size: 2em;
+
           strong {
             margin: 0 0.5ch;
             font-size: 1.3em;
@@ -122,6 +121,7 @@
         fill: var(--blue);
       }
     }
+
     > div {
       padding-top: 8rem;
     }

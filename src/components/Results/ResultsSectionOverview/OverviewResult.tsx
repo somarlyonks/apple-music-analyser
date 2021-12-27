@@ -1,46 +1,12 @@
 import Flex from '@csszen/components.flex'
-import {CSVReaderProps} from 'react-csv-reader'
 import {useSprings, animated, to, SpringValue} from 'react-spring'
 
 import {IAnalyseResults} from 'src/libs/computation'
 
-import Uploader from '../Uploader'
-import AppleMusic from '../icons/AppleMusic'
-import PluralLocale from '../PluralLocale'
+import PluralLocale from '../../PluralLocale'
 
 
-interface IProps {
-    results?: IAnalyseResults
-    dataHandler?: CSVReaderProps['onFileLoaded']
-    resolving?: boolean
-}
-
-// TODO: @sy Resolving spring
-// TODO: @sy empty spring
-// TODO: @sy overview stats spring
-export default function ResultsSectionOverview ({results, dataHandler, resolving}: IProps) {
-    return (
-        <Flex className={`results-section overview results-section--full${results ? '' : ' results-section--empty'}`} alignItems="center" verticle>
-            <Flex alignItems="flex-start">
-                <Flex verticle grow>
-                    <h1>Apple Music Analyser</h1>
-                    {!results
-                        ? (resolving
-                            ? <span>Resolving...</span>
-                            : dataHandler && <Uploader dataHandler={dataHandler} />
-                        )
-                        : <OverviewResult overviewPlayResult={results.overviewPlayResult} />
-                    }
-                </Flex>
-                <Flex className="result-card">
-                    <AppleMusic className="with-drop-shadow" />
-                </Flex>
-            </Flex>
-        </Flex>
-    )
-}
-
-function OverviewResult ({overviewPlayResult}: Pick<IAnalyseResults, 'overviewPlayResult'>) {
+export default function OverviewResult ({overviewPlayResult}: Pick<IAnalyseResults, 'overviewPlayResult'>) {
     const durationSegments = formatDuration(overviewPlayResult.time)
     const durationSegment0 = durationSegments[0]
 
