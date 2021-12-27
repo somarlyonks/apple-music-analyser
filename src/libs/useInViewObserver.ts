@@ -1,13 +1,13 @@
-import {useState} from 'react'
+import {useState, MutableRefObject} from 'react'
 import useInterSectionObserver from '@csszen/hooks.useintersectionobserver'
 
 
-export default function useInViewObserver (
+export default function useInViewObserver<T extends HTMLElement = HTMLDivElement> (
     options?: IntersectionObserverInit
-): [boolean, ReturnType<typeof useInterSectionObserver>] {
+): [boolean, MutableRefObject<T>] {
     const [inView, setInView] = useState(false)
 
-    const $observeAnchor = useInterSectionObserver(entry => {
+    const $observeAnchor = useInterSectionObserver<T>(entry => {
         setInView(entry.isIntersecting)
     }, options)
 
