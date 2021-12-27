@@ -8,13 +8,13 @@ import {IAnalyseResults, IRecord} from '../libs/computation'
 
 
 export default function Index () {
-    const [resolving, setResolving] = useState(false)
+    const [resolving, setResolving] = useState(0)
     const [results, setResults] = useState<IAnalyseResults | undefined>(undefined)
 
     const workerRef = useRef<Worker>()
 
     const dataHandler = useCallback((records: IRecord[]) => {
-        setResolving(true)
+        setResolving(records.length)
         workerRef.current?.postMessage(records)
     }, [])
 
@@ -22,7 +22,7 @@ export default function Index () {
         workerRef.current = new Worker(new URL('../libs/analyse.worker.ts', import.meta.url))
         workerRef.current.onmessage = ({data}) => {
             setResults(data)
-            setResolving(false)
+            setResolving(0)
         }
 
         return () => {

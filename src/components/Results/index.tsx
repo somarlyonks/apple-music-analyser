@@ -15,7 +15,7 @@ import ResultsSectionHours from './ResultsSectionHours'
 interface IProps {
     results?: IAnalyseResults
     dataHandler?: CSVReaderProps['onFileLoaded']
-    resolving?: boolean
+    resolving?: number
 }
 
 export default function Results ({results, dataHandler, resolving}: IProps) {

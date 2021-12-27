@@ -2,7 +2,7 @@ import Link from 'next/link'
 import CsvParse, {CSVReaderProps} from 'react-csv-reader'
 import OcticonUpload from '@csszen/icons.octiconupload'
 
-import ArrowUpRight from './icons/ArrowUpRight'
+import ArrowUpRight from '../../icons/ArrowUpRight'
 
 
 interface IProps {
