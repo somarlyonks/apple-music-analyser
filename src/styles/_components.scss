@@ -153,12 +153,18 @@
       padding-bottom: 100%;
     }
   }
+  &.artist {
+    display: block;
+  }
 
-  &__content {
-    padding: 2ch;
+  > svg {
+    width: 100%;
+    height: 100%;
   }
 
   .result-card__content {
+    padding: 2ch;
+    background-size: cover;
     hr {
       margin: 2ch 0;
     }
