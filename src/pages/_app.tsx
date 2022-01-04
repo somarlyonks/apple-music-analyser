@@ -15,7 +15,7 @@ export default function MyApp ({Component, pageProps}: ANY) {
                 <link rel="manifest" href="/site.webmanifest" />
                 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#fa243c" />
                 <meta name="msapplication-TileColor" content="#b91d47" />
-                <meta name="theme-color" content="#fa243c" />
+                <meta name="theme-color" content="#ffffff" />
 
                 <meta name="robots" content="all" />
             </Head>
