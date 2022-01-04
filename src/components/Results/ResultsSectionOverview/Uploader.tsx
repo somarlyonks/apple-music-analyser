@@ -34,7 +34,7 @@ export default function Uploader ({dataHandler}: IProps) {
                     <code>  └─Apple Music Activity</code><br />
                     <code>    └─Apple Music Play Activity.csv</code>
                 </pre>
-                <p>You can also <a href="https://www.macrumors.com/2018/11/29/web-app-apple-music-history/" target="_blank" rel="noopener">follow this tutorial from MacRumors</a> for more detailed instructions.</p>
+                <p>You can also <a href="https://blog.somarl.com/export-apple-music-activities" target="_blank" rel="noopener">follow this blog post</a> for more detailed instructions.</p>
             </section>
 
             <section>
