@@ -47,7 +47,8 @@ export default function ResultsSectionSongs ({results, artists}: IProps) {
                             song={results[i + 1]}
                             key={results[i + 1].key}
                             style={{
-                                width: to(width, w => `${w * biasedRecordRatio(results, i + 1, 50) / 100}%`),
+                                // tslint:disable-next-line: no-magic-numbers
+                                width: to(width, w => `${w * ((inView && document.documentElement.clientWidth > 767) ? biasedRecordRatio(results, i + 1, 50) / 100 : 1)}%`),
                                 opacity: to(opacity, o => `${o * biasedRecordRatio(results, i + 1, 1 << 4)}%`),
                             }}
                         />

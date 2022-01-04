@@ -1,0 +1,64 @@
+$mobileThreshold: 767px;
+
+@media (min-width: #{$mobileThreshold + 1}) {
+  //
+}
+
+@media (max-width: $mobileThreshold) {
+  .results-container {
+    margin-bottom: 4rem;
+  }
+  .results-section--full > div {
+    flex-direction: column;
+    align-items: center;
+    .result-card {
+      order: -1;
+      width: 30vw;
+      margin: calc(35vw - max(2ch, env(safe-area-inset-left)));
+    }
+  }
+
+  .results-section {
+    &.songs,
+    &.artists {
+      flex-direction: column;
+      align-items: stretch;
+      .result-card {
+        margin: 0;
+        width: 100%;
+      }
+      .results-wrapper {
+        margin: 0;
+      }
+    }
+    &.songs {
+      .result-card {
+        margin: 0 0 1.25em;
+      }
+    }
+    &.artists {
+      .result-card {
+        margin: 1.25em 0 0;
+      }
+    }
+
+    h2 {
+      font-size: 2.5em;
+    }
+  }
+
+  .results-section.overview {
+    > div {
+      padding-top: 0;
+    }
+    h1 {
+      font-size: 3rem;
+    }
+  }
+
+  .main__content .results-section,
+  .main__content .results-section--full > div,
+  .footer__content {
+    box-sizing: border-box;
+  }
+}

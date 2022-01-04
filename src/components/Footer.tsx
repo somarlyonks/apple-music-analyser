@@ -17,7 +17,7 @@ export default function Footer ({children}: IProps) {
         <Flex className="footer" justifyContent="center">
             <Flex className="footer__content" verticle grow>
                 {children}
-                <Flex>No data ever leaves your computer and all computation is done in the browser.</Flex>
+                <Flex>No data ever leaves your device and all computation is done in the browser.</Flex>
                 <Flex>Apple and Apple Music are trademarks of Apple Inc., registered in the U.S. and other countries.</Flex>
 
                 <Flex>
