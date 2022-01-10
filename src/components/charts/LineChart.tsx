@@ -19,7 +19,8 @@ interface IProps {
 }
 
 export default function LineChart ({datas, width, height, inView}: IProps) {
-    const padding = [height / 50, width / 50, height / 50, width / 50]
+    // tslint:disable-next-line: no-magic-numbers
+    const padding = [height / 20, width / 50, height / 20, width / 50]
     const path = calculatePath(scalePoints(datas, {width, height, padding}))
     const [pathLength, $fullPath] = useSvgPathLength([path])
 
@@ -85,7 +86,7 @@ function calculatePath (points: IPoint2[]): string {
         nextPoint: IPoint2,
         reverse: boolean
     ): number[] {
-        const smoothing = 0.2
+        const smoothing = 0.1415926
         const oppositeLine = computeOppositeLine(
             previousPoint || currentPoint,
             nextPoint || currentPoint
