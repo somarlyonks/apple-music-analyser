@@ -14,7 +14,7 @@ export default function Example () {
     const [results, setResults] = useState<IAnalyseResults | undefined>(undefined)
 
     useEffect(() => {
-        const hash = '3275e7bf-6e02-4292-a4c9-27b46176bba6'
+        const hash = '3cec0254-f02d-40f9-a41d-611b6ea4261e'
         const url = `https://s3.us-east-2.amazonaws.com/static.somarl.com/${hash}/example-results.json`
         fetch(url).then(r => r.json()).then(r => {
             setResults(r as ANY)

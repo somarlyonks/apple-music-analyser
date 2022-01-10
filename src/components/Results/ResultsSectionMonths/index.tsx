@@ -1,3 +1,4 @@
+import {useMemo} from 'react'
 import Flex from '@csszen/components.flex'
 import ContainerDimensions from 'react-container-dimensions'
 
@@ -13,17 +14,21 @@ interface IProps {
 
 export default function ResultsSectionMonths ({results}: IProps) {
     const [inView, $observeAnchor] = useInViewObserver()
-    // tslint:disable-next-line: no-magic-numbers
-    const datas = Array.from(Array(12), (_, i) => ({
-        x: i,
-        y: 0,
-    }))
-    results.forEach((result, i) => {
-        const month = new Date(result.month).getMonth()
-        if (datas[month]) {
-            datas[month].y = result.time
-        }
-    })
+
+    const datas = useMemo(() => {
+        // tslint:disable-next-line: no-magic-numbers
+        const tmpDatas = Array.from(Array(12), (_, i) => ({
+            x: i,
+            y: 0,
+        }))
+        results.forEach(result => {
+            if (tmpDatas[result.monthOrder]) {
+                tmpDatas[result.monthOrder].y = result.time
+            }
+        })
+
+        return tmpDatas
+    }, [results])
 
     return (
         <Flex ref={$observeAnchor} className="results-section months" alignItems="flex-start">
