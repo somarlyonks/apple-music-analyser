@@ -13,10 +13,17 @@ interface IProps {
 
 export default function ResultsSectionMonths ({results}: IProps) {
     const [inView, $observeAnchor] = useInViewObserver()
-    const datas = results.map((result, i) => ({
+    // tslint:disable-next-line: no-magic-numbers
+    const datas = Array.from(Array(12), (_, i) => ({
         x: i,
-        y: result.time,
+        y: 0,
     }))
+    results.forEach((result, i) => {
+        const month = new Date(result.month).getMonth()
+        if (datas[month]) {
+            datas[month].y = result.time
+        }
+    })
 
     return (
         <Flex ref={$observeAnchor} className="results-section months" alignItems="flex-start">
