@@ -8,7 +8,7 @@ export default function useInViewObserver<T extends HTMLElement = HTMLDivElement
     const [inView, setInView] = useState(false)
 
     const $observeAnchor = useInterSectionObserver<T>(entry => {
-        setInView(entry.isIntersecting)
+        setInView(prev => prev || entry.isIntersecting)
     }, options)
 
     return [inView, $observeAnchor]

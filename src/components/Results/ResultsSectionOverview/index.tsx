@@ -37,7 +37,7 @@ export default function ResultsSectionOverview ({results, dataHandler, resolving
                     <h1>Apple Music Analyser</h1>
                     {results
                         ? <OverviewResult overviewPlayResult={results.overviewPlayResult} />
-                        : resolving
+                        : resolving // TODO: @sy exception compatibility
                             ? <Resolving resolving={resolving} />
                             : dataHandler && <Uploader dataHandler={dataHandler} />
                     }
