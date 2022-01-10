@@ -88,6 +88,7 @@ export interface ISongPlayDayResult extends IResult {
 
 export interface ISongPlayMonthResult extends IResult {
     month: string
+    monthOrder: number
 }
 
 export interface ISongPlayHourResult extends IResult {
@@ -343,6 +344,7 @@ export class Analyser {
     public get songPlayMonthResults (): ISongPlayMonthResult[] {
         return sortByMonth(mergeRecordEvents(this.playEvents, RecordEventFormat.month, ([month, recordEvents]) => ({
             month,
+            monthOrder: new Date(recordEvents[0].datetime).getMonth(),
             time: sumDuration(recordEvents),
             plays: sumPlayCount(recordEvents),
         })))
