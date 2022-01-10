@@ -43,7 +43,7 @@ export default function ResultsSectionArtists ({artists}: IProps) {
                 <h2>Most Played Artists</h2>
                 <Flex className="results" verticle>
                     {artists.slice(0, 7).map((artist, i) => (
-                        <ArtistPlayRow artist={artist} key={artist.name} style={{
+                        <ArtistPlayRow result={artist} key={artist.name} style={{
                             opacity: `${biasedRatio(artist.time / artists[1].time, 1 << 4)}%`,
                             ...springs[i] as unknown as ANY,
                         }} />
