@@ -179,10 +179,10 @@
     "@somarlyonks/bem" "1.0.1"
     core-js "^3.0.0"
 
-"@csszen/hooks.useintersectionobserver@0.2.0":
-  version "0.2.0"
-  resolved "https://node.bit.dev/@csszen/hooks.useintersectionobserver/-/@csszen-hooks.useintersectionobserver-0.2.0.tgz#46b3804f529d5db4bd0c361a63478238f920e675"
-  integrity sha1-RrOAT1KdXbS9DDYaY0eCOPkg5nU=
+"@csszen/hooks.useintersectionobserver@0.3.0":
+  version "0.3.0"
+  resolved "https://node.bit.dev/@csszen/hooks.useintersectionobserver/-/@csszen-hooks.useintersectionobserver-0.3.0.tgz#2387eb95132295a7fdbfd88249f2cb2206d0f5b8"
+  integrity sha1-I4frlRMilaf9v9iCSfLLIgbQ9bg=
   dependencies:
     core-js "^3.0.0"
 
