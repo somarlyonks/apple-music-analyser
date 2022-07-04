@@ -193,10 +193,10 @@
   dependencies:
     core-js "^3.0.0"
 
-"@csszen/icons.octiconupload@1.0.1":
-  version "1.0.1"
-  resolved "https://node.bit.dev/@csszen/icons.octiconupload/-/@csszen-icons.octiconupload-1.0.1.tgz#ab051e85a0fc3f5fa40a77bf6ab148a67505d460"
-  integrity sha1-qwUehaD8P1+kCne/arFIpnUF1GA=
+"@csszen/icons.octiconupload@1.1.0":
+  version "1.1.0"
+  resolved "https://node.bit.dev/@csszen/icons.octiconupload/-/@csszen-icons.octiconupload-1.1.0.tgz#ac995656b53b93e8e5027789b719be86fab0f883"
+  integrity sha1-rJlWVrU7k+jlAneJtxm+hvqw+IM=
   dependencies:
     core-js "^3.0.0"
 
