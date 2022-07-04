@@ -163,18 +163,18 @@
   dependencies:
     chalk "^4.0.0"
 
-"@csszen/components.flex@0.2.1":
-  version "0.2.1"
-  resolved "https://node.bit.dev/@csszen/components.flex/-/@csszen-components.flex-0.2.1.tgz#2806993de00237ed231b83307c580012982b79dc"
-  integrity sha1-KAaZPeACN+0jG4MwfFgAEpgredw=
+"@csszen/components.flex@0.4.0":
+  version "0.4.0"
+  resolved "https://node.bit.dev/@csszen/components.flex/-/@csszen-components.flex-0.4.0.tgz#89c6b1b5c2ab68661e02ee98df125a2a522724ad"
+  integrity sha1-icaxtcKraGYeAu6Y3xJaKlInJK0=
   dependencies:
-    "@csszen/hooks.usebem" "0.1.1"
+    "@csszen/hooks.usebem" "0.2.0"
     core-js "^3.0.0"
 
-"@csszen/hooks.usebem@0.1.1":
-  version "0.1.1"
-  resolved "https://node.bit.dev/@csszen/hooks.usebem/-/@csszen-hooks.usebem-0.1.1.tgz#e86a3c5623d0c5238d97182ae854b6bb85e80e7b"
-  integrity sha1-6Go8ViPQxSONlxgq6FS2u4XoDns=
+"@csszen/hooks.usebem@0.2.0":
+  version "0.2.0"
+  resolved "https://node.bit.dev/@csszen/hooks.usebem/-/@csszen-hooks.usebem-0.2.0.tgz#644d914e5f6e472c0d14734024e5160496b38d3a"
+  integrity sha1-ZE2RTl9uRywNFHNAJOUWBJazjTo=
   dependencies:
     "@somarlyonks/bem" "1.0.1"
     core-js "^3.0.0"
