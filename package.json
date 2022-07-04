@@ -13,7 +13,7 @@
   "dependencies": {
     "@csszen/components.flex": "0.2.1",
     "@csszen/hooks.useintersectionobserver": "0.3.0",
-    "@csszen/icons.github": "1.0.0",
+    "@csszen/icons.github": "1.1.0",
     "@csszen/icons.octiconupload": "1.1.0",
     "d3-color": "3.1.0",
     "d3-force": "3.0.0",
