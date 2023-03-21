@@ -24,7 +24,7 @@
     "react-container-dimensions": "1.4.1",
     "react-csv-reader": "3.4.0",
     "react-dom": "18.2.0",
-    "react-spring": "9.7.0",
+    "react-spring": "9.7.1",
     "react-tooltip": "4.5.1"
   },
   "devDependencies": {
