@@ -4,6 +4,7 @@
   ],
   "ignoreDeps": [
     "@types/react",
+    "@types/node",
     "typescript",
     "@commitlint/cli",
     "@commitlint/config-conventional"
