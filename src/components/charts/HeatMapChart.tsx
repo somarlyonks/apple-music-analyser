@@ -113,7 +113,7 @@ function Block ({size, index, title, x, y, fill = 'currentcolor', borderRadius =
             y={y}
             fill={fill}
             rx={borderRadius}
-            data-tip={tipper && tipper(index)}
+            data-tooltip-content={tipper && tipper(index)}
         >{title && <title>{title}</title>}</rect>
     )
 }

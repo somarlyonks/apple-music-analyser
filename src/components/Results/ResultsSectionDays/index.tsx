@@ -1,5 +1,5 @@
 import Flex from '@csszen/components.flex'
-import ReactTooltip from 'react-tooltip'
+import {Tooltip} from 'react-tooltip'
 import {useCallback} from 'react'
 
 import {ISongPlayDayResult, ResultsMapper} from 'src/libs/computation'
@@ -22,8 +22,8 @@ export default function ResultsSectionDays ({results}: IProps) {
     const {heatMapDatas, xLabels, yLabels} = collectHeatMapDatas(results)
     const datas = heatMapDatas.map(heatMapData => heatMapData.map(v => v.value))
 
-    const tooltipRenderer = useCallback((dataTip: string) => {
-        const index = parseInt(dataTip, 10)
+    const tooltipRenderer = useCallback(({content}: {content: string | null}) => {
+        const index = parseInt(content || '', 10)
         if (isNaN(index)) return null
 
         const heatMapData = heatMapDatas[index / 7 | 0][index % 7]
@@ -57,7 +57,7 @@ export default function ResultsSectionDays ({results}: IProps) {
                         yLabels={yLabels}
                         tipper={String}
                     />
-                    {inView && <ReactTooltip className="tooltip" place="right" effect="solid" getContent={tooltipRenderer} />}
+                    {inView && <Tooltip className="tooltip" place="right" render={tooltipRenderer} />}
                     <Flex>
                         <Flex grow><span className="color--red">*</span><p className="font-weight--lighter">Hover the blocks to view details.</p></Flex>
                         <HeatMapChartLegend />
