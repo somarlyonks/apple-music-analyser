@@ -1566,10 +1566,10 @@ react-spring@9.7.2:
     "@react-spring/web" "~9.7.3"
     "@react-spring/zdog" "~9.7.3"
 
-react-tooltip@5.13.2:
-  version "5.13.2"
-  resolved "https://registry.yarnpkg.com/react-tooltip/-/react-tooltip-5.13.2.tgz#96aa7a4947045d98755861314dfacc5474fbb34c"
-  integrity sha512-0Jtvo2eycYHRerb/+LUFf9p107dqpXxR08pT1SXtXxUPtiH5+kyVCUXFQglkBxjBPfGcEhYqGYnvKZuIVdNNXA==
+react-tooltip@5.18.1:
+  version "5.18.1"
+  resolved "https://registry.yarnpkg.com/react-tooltip/-/react-tooltip-5.18.1.tgz#72945248d1fa141d5b02e59b50a805d0098b0c01"
+  integrity sha512-5zUKoMoKHTYxobzhR160+kkHdLtB+yYO8p16aQRoz2jGcOdtV0o1enNynoA4YqQb3xTjl84N8KLNoscmgMNuSg==
   dependencies:
     "@floating-ui/dom" "^1.0.0"
     classnames "^2.3.0"
