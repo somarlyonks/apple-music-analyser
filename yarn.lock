@@ -381,10 +381,10 @@
   resolved "https://registry.yarnpkg.com/@types/d3-force/-/d3-force-3.0.5.tgz#835bbe01e084195175ddf71b7900bd44a9a23e8e"
   integrity sha512-EGG+IWx93ESSXBwfh/5uPuR9Hp8M6o6qEGU7bBQslxCvrdUBQZha/EFpu/VMdLU4B0y4Oe4h175nSm7p9uqFug==
 
-"@types/d3-scale@4.0.3":
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/@types/d3-scale/-/d3-scale-4.0.3.tgz#7a5780e934e52b6f63ad9c24b105e33dd58102b5"
-  integrity sha512-PATBiMCpvHJSMtZAMEhc2WyL+hnzarKzI6wAHYjhsonjWJYGq5BXTzQjv4l8m2jO183/4wZ90rKvSeT7o72xNQ==
+"@types/d3-scale@4.0.5":
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/@types/d3-scale/-/d3-scale-4.0.5.tgz#daa4faa5438315a37a1f5eb1bcdc5aeb3d3e5a2d"
+  integrity sha512-w/C++3W394MHzcLKO2kdsIn5KKNTOqeQVzyPSGPLzQbkPw/jpeaGtSRlakcKevGgGsjJxGsbqS0fPrVFDbHrDA==
   dependencies:
     "@types/d3-time" "*"
 
