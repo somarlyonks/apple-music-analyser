@@ -210,17 +210,25 @@
     ts-node "^9"
     tslib "^2"
 
-"@floating-ui/core@^1.2.6":
-  version "1.2.6"
-  resolved "https://registry.npmjs.org/@floating-ui/core/-/core-1.2.6.tgz#d21ace437cc919cdd8f1640302fa8851e65e75c0"
-  integrity sha512-EvYTiXet5XqweYGClEmpu3BoxmsQ4hkj3QaYA6qEnigCWffTP3vNRwBReTdrwDwo7OoJ3wM8Uoe9Uk4n+d4hfg==
-
-"@floating-ui/dom@^1.0.0":
-  version "1.2.6"
-  resolved "https://registry.npmjs.org/@floating-ui/dom/-/dom-1.2.6.tgz#bcf0c7bada97c20d9d1255b889f35bac838c63fe"
-  integrity sha512-02vxFDuvuVPs22iJICacezYJyf7zwwOCWkPNkWNBr1U0Qt1cKFYzWvxts0AmqcOQGwt/3KJWcWIgtbUU38keyw==
+"@floating-ui/core@^1.6.0":
+  version "1.6.5"
+  resolved "https://registry.yarnpkg.com/@floating-ui/core/-/core-1.6.5.tgz#102335cac0d22035b04d70ca5ff092d2d1a26f2b"
+  integrity sha512-8GrTWmoFhm5BsMZOTHeGD2/0FLKLQQHvO/ZmQga4tKempYRLz8aqJGqXVuQgisnMObq2YZ2SgkwctN1LOOxcqA==
   dependencies:
-    "@floating-ui/core" "^1.2.6"
+    "@floating-ui/utils" "^0.2.5"
+
+"@floating-ui/dom@^1.6.1":
+  version "1.6.8"
+  resolved "https://registry.yarnpkg.com/@floating-ui/dom/-/dom-1.6.8.tgz#45e20532b6d8a061b356a4fb336022cf2609754d"
+  integrity sha512-kx62rP19VZ767Q653wsP1XZCGIirkE09E0QUGNYTM/ttbbQHqcGPdSfWFxUyyNLc/W6aoJRBajOSXhP6GXjC0Q==
+  dependencies:
+    "@floating-ui/core" "^1.6.0"
+    "@floating-ui/utils" "^0.2.5"
+
+"@floating-ui/utils@^0.2.5":
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/@floating-ui/utils/-/utils-0.2.5.tgz#105c37d9d9620ce69b7f692a20c821bf1ad2cbf9"
+  integrity sha512-sTcG+QZ6fdEUObICavU+aB3Mp8HY4n14wYHdxK4fXjPmv3PXZZeY5RaguJmGyeH/CJQhX3fqKUtS4qc1LoHwhQ==
 
 "@next/env@13.5.4":
   version "13.5.4"
@@ -1565,12 +1573,12 @@ react-spring@9.7.2:
     "@react-spring/web" "~9.7.3"
     "@react-spring/zdog" "~9.7.3"
 
-react-tooltip@5.21.5:
-  version "5.21.5"
-  resolved "https://registry.yarnpkg.com/react-tooltip/-/react-tooltip-5.21.5.tgz#3e1bc02a0e674369dea81bb201d6106724dd60cf"
-  integrity sha512-ey70qf6pBGi4U6xpyNlZAHobAhlo2dfxmImR2Bzd/DbLTsAYWz3TEaK+RMFuUZMq6hSPRbUHQSkP2rHBq4uFVg==
+react-tooltip@5.28.0:
+  version "5.28.0"
+  resolved "https://registry.yarnpkg.com/react-tooltip/-/react-tooltip-5.28.0.tgz#c7b5343ab2d740a428494a3d8315515af1f26f46"
+  integrity sha512-R5cO3JPPXk6FRbBHMO0rI9nkUG/JKfalBSQfZedZYzmqaZQgq7GLzF8vcCWx6IhUCKg0yPqJhXIzmIO5ff15xg==
   dependencies:
-    "@floating-ui/dom" "^1.0.0"
+    "@floating-ui/dom" "^1.6.1"
     classnames "^2.3.0"
 
 react@18.2.0:
