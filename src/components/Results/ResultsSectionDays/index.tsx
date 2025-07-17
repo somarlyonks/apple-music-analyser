@@ -1,4 +1,3 @@
-import Flex from '@csszen/components.flex'
 import {Tooltip} from 'react-tooltip'
 import {useCallback} from 'react'
 
@@ -6,6 +5,7 @@ import {ISongPlayDayResult, ResultsMapper} from 'src/libs/computation'
 import useInViewObserver from 'src/libs/useInViewObserver'
 import formatDate from 'src/libs/formatDate'
 
+import Flex from 'src/components/Flex'
 import HeatMapChart from '../../charts/HeatMapChart'
 import HeatMapChartLegend from '../../charts/HeatMapChartLegend'
 import PlayDuration from '../PlayDuration'

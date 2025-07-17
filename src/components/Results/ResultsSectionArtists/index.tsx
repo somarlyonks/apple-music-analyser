@@ -1,5 +1,4 @@
 import {useCallback, useEffect, useState} from 'react'
-import Flex from '@csszen/components.flex'
 
 import {useSprings} from 'react-spring'
 
@@ -8,6 +7,7 @@ import biasedRatio from 'src/libs/biasedRatio'
 import useInViewObserver from 'src/libs/useInViewObserver'
 import {red} from 'src/libs/constants'
 
+import Flex from 'src/components/Flex'
 import ArtistPlayBubbles from './ArtistPlayBubbles'
 import ArtistPlayRow from './ArtistPlayRow'
 

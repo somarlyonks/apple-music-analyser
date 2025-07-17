@@ -1,6 +1,6 @@
-import Flex from '@csszen/components.flex'
 
 import getLinearColorByValue from 'src/libs/getLinearColorByValue'
+import Flex from 'src/components/Flex'
 
 
 interface IProps {

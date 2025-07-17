@@ -1,9 +1,9 @@
 import {CSSProperties} from 'react'
-import Flex from '@csszen/components.flex'
 import {animated} from 'react-spring'
 
 import {IArtistPlayResult} from '../../../libs/computation'
 
+import Flex from '../../Flex'
 import PlayDuration from '../PlayDuration'
 
 

@@ -1,10 +1,10 @@
 import {useMemo} from 'react'
-import Flex from '@csszen/components.flex'
 import ContainerDimensions from 'react-container-dimensions'
 
 import {ISongPlayMonthResult} from 'src/libs/computation'
 import useInViewObserver from 'src/libs/useInViewObserver'
 
+import Flex from 'src/components/Flex'
 import LineChart from '../../charts/LineChart'
 
 

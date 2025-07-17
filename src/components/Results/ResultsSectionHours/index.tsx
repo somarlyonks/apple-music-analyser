@@ -1,9 +1,9 @@
 import {useCallback, useState} from 'react'
-import Flex from '@csszen/components.flex'
 
 import {ISongPlayHourResult, ResultsMapper} from 'src/libs/computation'
 import useInViewObserver from 'src/libs/useInViewObserver'
 
+import Flex from 'src/components/Flex'
 import HeatMapChart from '../../charts/HeatMapChart'
 import HeatMapChartLegend from '../../charts/HeatMapChartLegend'
 

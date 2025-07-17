@@ -11,10 +11,7 @@
     "husky": "husky install"
   },
   "dependencies": {
-    "@csszen/components.flex": "0.4.0",
-    "@csszen/hooks.useintersectionobserver": "0.3.0",
-    "@csszen/icons.github": "1.1.0",
-    "@csszen/icons.octiconupload": "1.1.0",
+    "csstype": "3.1.3",
     "d3-color": "3.1.0",
     "d3-force": "3.0.0",
     "d3-scale": "4.0.2",
