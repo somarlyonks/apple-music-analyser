@@ -1,6 +1,6 @@
 import {useCallback, useEffect, useState} from 'react'
 
-import {useSprings} from 'react-spring'
+import {useSprings} from '@react-spring/web'
 
 import {IArtistPlayResult} from 'src/libs/computation'
 import biasedRatio from 'src/libs/biasedRatio'

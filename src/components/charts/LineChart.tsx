@@ -1,5 +1,5 @@
 import {useEffect, useCallback} from 'react'
-import {useSpring, animated, config} from 'react-spring'
+import {useSpring, animated, config} from '@react-spring/web'
 
 import {red} from 'src/libs/constants'
 import useSvgPathLength from 'src/libs/useSvgPathLength'

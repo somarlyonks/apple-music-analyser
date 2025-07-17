@@ -2,7 +2,7 @@
 import {useCallback, useEffect, useState} from 'react'
 import {rgb} from 'd3-color'
 import {SimulationNodeDatum, Simulation, forceSimulation, forceCenter, forceCollide} from 'd3-force'
-import {useSprings, animated, config} from 'react-spring'
+import {useSprings, animated, config} from '@react-spring/web'
 
 import {red} from 'src/libs/constants'
 import getLinearColorByValue from 'src/libs/getLinearColorByValue'

@@ -1,4 +1,4 @@
-import {useSprings, animated, to, SpringValue} from 'react-spring'
+import {useSprings, animated, to, SpringValue} from '@react-spring/web'
 
 import {IAnalyseResults} from 'src/libs/computation'
 

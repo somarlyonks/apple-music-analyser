@@ -1,5 +1,5 @@
 import {CSSProperties} from 'react'
-import {animated} from 'react-spring'
+import {animated} from '@react-spring/web'
 
 import {IArtistPlayResult} from '../../../libs/computation'
 
