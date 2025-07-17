@@ -1,11 +1,11 @@
 import {useState, useEffect} from 'react'
 import Link from 'next/link'
-import Flex from '@csszen/components.flex'
+
+import {IAnalyseResults} from '../libs/computation'
 
 import Results from '../components/Results'
 import Footer from '../components/Footer'
-
-import {IAnalyseResults} from '../libs/computation'
+import Flex from 'src/components/Flex'
 
 
 export default function Example () {

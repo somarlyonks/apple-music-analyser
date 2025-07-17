@@ -1,8 +1,8 @@
-import Flex from '@csszen/components.flex'
 import {useSprings, animated, to, SpringValue} from 'react-spring'
 
 import {IAnalyseResults} from 'src/libs/computation'
 
+import Flex from 'src/components/Flex'
 import PluralLocale from '../../PluralLocale'
 
 

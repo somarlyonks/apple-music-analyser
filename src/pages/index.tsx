@@ -1,6 +1,6 @@
 import {useState, useRef, useEffect, useCallback} from 'react'
-import Flex from '@csszen/components.flex'
 
+import Flex from 'src/components/Flex'
 import Results from '../components/Results'
 import Footer from '../components/Footer'
 

@@ -1,8 +1,8 @@
-import Flex from '@csszen/components.flex'
 import ContainerDimensions from 'react-container-dimensions'
 
 import {IArtistPlayResult, ResultsMapper} from '../../../libs/computation'
 
+import Flex from 'src/components/Flex'
 import BubbleChart from '../../charts/BubbleChart'
 
 

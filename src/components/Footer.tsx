@@ -1,10 +1,10 @@
 import {ReactNode} from 'react'
 import Link from 'next/link'
-import Flex from '@csszen/components.flex'
-import OcticonGithub from '@csszen/icons.github'
 
+import OcticonGithub from '../components/icons/Github'
 import Vercel from '../components/icons/Vercel'
 import Apple from '../components/icons/Apple'
+import Flex from '../components/Flex'
 import Hr from '../components/Hr'
 
 

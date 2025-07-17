@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import CsvParse, {CSVReaderProps} from 'react-csv-reader'
-import OcticonUpload from '@csszen/icons.octiconupload'
 
+import OcticonUpload from '../../icons/Upload'
 import ArrowUpRight from '../../icons/ArrowUpRight'
 
 

@@ -1,0 +1,53 @@
+.cz-flex {
+  $Globals: -moz-initial, inherit, initial, revert, unset;
+  $ContentDistribution: space-around, space-between, space-evenly, stretch;
+  $ContentPosition: center, end, flex-end, flex-start, start;
+  $SelfPositions: center, end, flex-end, flex-start, self-end, self-start, start;
+
+  $FlexBasis: 0, auto;
+  $FlexWrap: join($Globals, (nowrap, wrap, wrap-reverse));
+  $AlignItems: join(join($Globals, $SelfPositions), (baseline, normal, stretch));
+  $JustifyContent: join(join(join($Globals, $ContentDistribution), $ContentPosition), (left, normal, right));
+  $AlignContent: join(join($Globals, $SelfPositions), (baseline, normal));
+  $FlexDirection: join($Globals, (column, column-reverse, row, row-reverse));
+  $AlignSelf: join(join($Globals, $SelfPositions), (auto, baseline, normal, stretch));
+  $Order: join($Globals, (0, 1, 2, 3, 4, 5, 6, 7, 8, 9));
+  $FlexWeight: 0, 1;
+
+  $valueMap: (
+    flex-grow: $FlexWeight,
+    flex-shrink: $FlexWeight,
+    flex-basis: $FlexBasis,
+    align-items: $AlignItems,
+    justify-content: $JustifyContent,
+    align-content: $AlignContent,
+    flex-wrap: $FlexWrap,
+    flex-direction: $FlexDirection,
+    align-self: $AlignSelf,
+    order: $Order,
+  );
+
+  display: flex;
+
+  & &-container {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+  }
+  &--full {
+    position: absolute !important;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  @each $name, $values in $valueMap {
+    @each $value in $values {
+      &--#{$name}-#{$value} {
+        #{$name}: $value;
+      }
+    }
+  }
+}

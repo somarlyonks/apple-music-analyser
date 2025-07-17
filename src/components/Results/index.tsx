@@ -1,8 +1,8 @@
-import Flex from '@csszen/components.flex'
 import {CSVReaderProps} from 'react-csv-reader'
 
 import {IAnalyseResults} from '../../libs/computation'
 
+import Flex from '../Flex'
 import Hr from '../Hr'
 import ResultsSectionOverview from './ResultsSectionOverview'
 import ResultsSectionSongs from './ResultsSectionSongs'

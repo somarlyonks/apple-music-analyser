@@ -1,11 +1,11 @@
 import {useCallback} from 'react'
 import {useTrail, animated, to} from 'react-spring'
-import Flex from '@csszen/components.flex'
 
 import {ISongPlayResult, IArtistPlayResult} from '../../../libs/computation'
 import biasedRatio from '../../../libs/biasedRatio'
 import useInViewObserver from '../../../libs/useInViewObserver'
 
+import Flex from 'src/components/Flex'
 import SongPlayRow from './SongPlayRow'
 import SongPlayCard from './SongPlayCard'
 

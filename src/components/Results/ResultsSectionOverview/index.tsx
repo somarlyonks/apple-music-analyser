@@ -1,4 +1,3 @@
-import Flex from '@csszen/components.flex'
 import {CSVReaderProps} from 'react-csv-reader'
 import {animated, useSpring} from 'react-spring'
 
@@ -9,6 +8,7 @@ import AppleMusic from '../../icons/AppleMusic'
 import Uploader from './Uploader'
 import Resolving from './Resolving'
 import OverviewResult from './OverviewResult'
+import Flex from 'src/components/Flex'
 
 
 interface IProps {
