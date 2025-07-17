@@ -1,5 +1,5 @@
 import {CSVReaderProps} from 'react-csv-reader'
-import {animated, useSpring} from 'react-spring'
+import {animated, useSpring} from '@react-spring/web'
 
 import {IAnalyseResults} from 'src/libs/computation'
 import {red} from 'src/libs/constants'

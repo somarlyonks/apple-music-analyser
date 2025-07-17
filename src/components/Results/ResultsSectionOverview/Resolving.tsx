@@ -1,5 +1,5 @@
 import PlaysLocale from '../PlaysLocale'
-import {useSpring, animated, to, config} from 'react-spring'
+import {useSpring, animated, to, config} from '@react-spring/web'
 
 
 export default function Resolving ({resolving}: {

@@ -1,5 +1,5 @@
 import {useCallback} from 'react'
-import {useTrail, animated, to} from 'react-spring'
+import {useTrail, animated, to} from '@react-spring/web'
 
 import {ISongPlayResult, IArtistPlayResult} from '../../../libs/computation'
 import biasedRatio from '../../../libs/biasedRatio'
