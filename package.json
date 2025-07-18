@@ -18,11 +18,11 @@
     "next": "13.5.11",
     "prop-types": "15.8.1",
     "react": "19.1.0",
-    "react-container-dimensions": "1.4.1",
     "react-csv-reader": "4.0.0",
     "react-dom": "19.1.0",
     "react-spring": "9.7.5",
-    "react-tooltip": "5.29.1"
+    "react-tooltip": "5.29.1",
+    "react-use-measure": "2.1.7"
   },
   "devDependencies": {
     "@commitlint/cli": "15.0.0",
