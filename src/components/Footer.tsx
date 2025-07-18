@@ -22,13 +22,13 @@ export default function Footer ({children}: IProps) {
 
                 <Flex>
                     <Flex alignItems="center">
-                        <Link href="https://www.apple.com/legal/privacy/">
+                        <Link legacyBehavior href="https://www.apple.com/legal/privacy/">
                             <a className="icon-group" target="_blank"><Apple /><span>Privacy Policy</span></a>
                         </Link>
                     </Flex>
                     <Flex><span>&nbsp;</span><span>|</span><span>&nbsp;</span></Flex>
                     <Flex alignItems="center">
-                        <Link href="https://github.com/somarlyonks/apple-music-analyser/">
+                        <Link legacyBehavior href="https://github.com/somarlyonks/apple-music-analyser/">
                             <a className="icon-group" target="_blank"><OcticonGithub /><span>Source Code</span></a>
                         </Link>
                     </Flex>
@@ -44,7 +44,7 @@ export default function Footer ({children}: IProps) {
                         <span>Hosted with</span>
                         <span style={{color: '#e25555'}}>&hearts;</span>
                         <span>by</span>
-                        <Link href="https://vercel.com/"><a className="vercel-icon" role="button" target="_blank"><Vercel /></a></Link>
+                        <Link legacyBehavior href="https://vercel.com/"><a className="vercel-icon" role="button" target="_blank"><Vercel /></a></Link>
                     </Flex>
                 </Flex>
             </Flex>
