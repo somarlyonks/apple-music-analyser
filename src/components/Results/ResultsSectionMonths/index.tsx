@@ -1,5 +1,5 @@
 import {useMemo} from 'react'
-import ContainerDimensions from 'react-container-dimensions'
+import useMeasure from 'react-use-measure'
 
 import {ISongPlayMonthResult} from 'src/libs/computation'
 import useInViewObserver from 'src/libs/useInViewObserver'
@@ -14,6 +14,7 @@ interface IProps {
 
 export default function ResultsSectionMonths ({results}: IProps) {
     const [inView, $observeAnchor] = useInViewObserver()
+    const [ref, bounds] = useMeasure()
 
     const datas = useMemo(() => {
         // tslint:disable-next-line: no-magic-numbers
@@ -34,13 +35,9 @@ export default function ResultsSectionMonths ({results}: IProps) {
         <Flex ref={$observeAnchor} className="results-section months" alignItems="flex-start">
             <Flex className="results-wrapper" verticle grow>
                 <h2>Played Hours by Month</h2>
-                <Flex className="results" verticle>
-                    <ContainerDimensions>
-                        {({width}) => (
-                            // tslint:disable-next-line: no-magic-numbers
-                            <LineChart datas={datas} width={width} height={width / 16 * 9} inView={inView} />
-                        )}
-                    </ContainerDimensions>
+                <Flex className="results" verticle ref={ref}>
+                    {/* tslint:disable-next-line: no-magic-numbers */}
+                    <LineChart datas={datas} width={bounds.width} height={bounds.width / 16 * 9} inView={inView} />
                 </Flex>
             </Flex>
         </Flex>

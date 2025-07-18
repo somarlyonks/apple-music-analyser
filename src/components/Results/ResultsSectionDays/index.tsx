@@ -46,6 +46,8 @@ export default function ResultsSectionDays ({results}: IProps) {
         )
     }, [results])
 
+    const tipId = "result-day-tooltip"
+
     return (
         <Flex ref={$observeAnchor} className="results-section days" alignItems="flex-start">
             <Flex className="results-wrapper" verticle grow>
@@ -56,8 +58,9 @@ export default function ResultsSectionDays ({results}: IProps) {
                         xLabels={xLabels}
                         yLabels={yLabels}
                         tipper={String}
+                        tipId={tipId}
                     />
-                    {inView && <Tooltip className="tooltip" place="right" render={tooltipRenderer} />}
+                    {inView && <Tooltip id={tipId} className="tooltip" place="right" render={tooltipRenderer} />}
                     <Flex>
                         <Flex grow><span className="color--red">*</span><p className="font-weight--lighter">Hover the blocks to view details.</p></Flex>
                         <HeatMapChartLegend />

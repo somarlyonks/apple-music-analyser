@@ -38,7 +38,7 @@ export default function Uploader ({dataHandler}: IProps) {
             </section>
 
             <section>
-                <Link href="/example">
+                <Link legacyBehavior href="/example">
                     <a className="font-size--h3">Take an insight of the example report <ArrowUpRight className="icon-arrow-up-right" /></a>
                 </Link>
             </section>
