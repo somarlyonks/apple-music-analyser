@@ -12,6 +12,7 @@ interface IProps {
     blockGap?: number
     blockBorderRadius?: number
     fontSize?: number
+    tipId?: string
     tipper?: ITipper
 }
 
@@ -21,7 +22,7 @@ export default function HeatMapChart ({
     datas,
     xLabels = [], yLabels = [], fontSize = 10,
     blockSize = 11, blockGap = 4, blockBorderRadius = 2,
-    tipper,
+    tipId, tipper,
 }: IProps) {
     const maxValue = Math.max(...datas.map(data => Math.max(...data.filter(v => !isNaN(v)))))
     const offsetX = yLabels.length && fontSize * 2.5
@@ -42,6 +43,7 @@ export default function HeatMapChart ({
                         index={columnIndex * datas[0].length}
                         borderRadius={blockBorderRadius}
                         x={getOffsetDistance(blockSize, blockGap, columnIndex)}
+                        tipId={tipId}
                         tipper={tipper}
                     />
                 ))}
@@ -67,7 +69,7 @@ export default function HeatMapChart ({
     )
 }
 
-function Column ({datas, x, size, gap, maxValue, index, tipper, borderRadius}: {
+function Column ({datas, x, size, gap, maxValue, index, borderRadius, tipId, tipper}: {
     size: number
     datas: number[]
     x: number
@@ -75,6 +77,7 @@ function Column ({datas, x, size, gap, maxValue, index, tipper, borderRadius}: {
     maxValue: number
     index: number
     borderRadius: number
+    tipId?: string
     tipper?: ITipper
 }) {
     return (
@@ -87,15 +90,16 @@ function Column ({datas, x, size, gap, maxValue, index, tipper, borderRadius}: {
                     x={0}
                     y={getOffsetDistance(size, gap, dataIndex)}
                     fill={getLinearColorByValue(data, maxValue, {minColor: '#ebedf0'})}
-                    tipper={tipper}
                     borderRadius={borderRadius}
+                    tipId={tipId}
+                    tipper={tipper}
                 />
             )))}
         </g>
     )
 }
 
-function Block ({size, index, title, x, y, fill = 'currentcolor', borderRadius = 2, tipper}: {
+function Block ({size, index, title, x, y, fill = 'currentcolor', borderRadius = 2, tipId, tipper}: {
     size: number
     index: number
     title?: string
@@ -103,6 +107,7 @@ function Block ({size, index, title, x, y, fill = 'currentcolor', borderRadius =
     y: number
     fill?: Property.Color
     borderRadius?: number
+    tipId?: string
     tipper?: ITipper
 }) {
     return (
@@ -113,6 +118,7 @@ function Block ({size, index, title, x, y, fill = 'currentcolor', borderRadius =
             y={y}
             fill={fill}
             rx={borderRadius}
+            data-tooltip-id={tipId}
             data-tooltip-content={tipper && tipper(index)}
         >{title && <title>{title}</title>}</rect>
     )
