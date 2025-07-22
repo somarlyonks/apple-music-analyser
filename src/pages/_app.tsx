@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import 'react-tooltip/dist/react-tooltip.css'
 import 'src/styles/globals.scss'
 
 
