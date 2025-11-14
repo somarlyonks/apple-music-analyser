@@ -1,4 +1,4 @@
-import React, {ReactNode, HTMLAttributes, forwardRef} from 'react'
+import {ReactNode, HTMLAttributes, forwardRef} from 'react'
 import type {Property, Globals} from 'csstype'
 
 import {useBem} from '../libs/useBem'
