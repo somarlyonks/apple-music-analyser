@@ -35,7 +35,7 @@
     "@types/react": "17.0.15",
     "folans.d.ts": "2.0.0",
     "husky": "8.0.3",
-    "sass": "1.94.0",
+    "sass": "1.94.2",
     "typescript": "5.9.3"
   },
   "commitlint": {
