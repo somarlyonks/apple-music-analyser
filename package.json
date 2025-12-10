@@ -11,7 +11,7 @@
     "husky": "husky install"
   },
   "dependencies": {
-    "@react-spring/web": "9.7.5",
+    "@react-spring/web": "10.0.3",
     "csstype": "3.2.3",
     "d3-color": "3.1.0",
     "d3-force": "3.0.0",
