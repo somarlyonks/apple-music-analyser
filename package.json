@@ -16,7 +16,7 @@
     "d3-color": "3.1.0",
     "d3-force": "3.0.0",
     "d3-scale": "4.0.2",
-    "next": "16.0.8",
+    "next": "16.1.1",
     "prop-types": "15.8.1",
     "react": "19.2.3",
     "react-csv-reader": "4.0.0",
