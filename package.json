@@ -18,7 +18,7 @@
     "d3-scale": "4.0.2",
     "next": "16.2.6",
     "prop-types": "15.8.1",
-    "react": "19.2.6",
+    "react": "19.2.8",
     "react-csv-reader": "4.0.0",
     "react-dom": "19.2.6",
     "react-tooltip": "5.30.1",
