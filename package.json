@@ -21,7 +21,7 @@
     "react": "19.2.8",
     "react-csv-reader": "4.0.0",
     "react-dom": "19.2.8",
-    "react-tooltip": "5.30.1",
+    "react-tooltip": "6.0.8",
     "react-use-measure": "2.1.7"
   },
   "devDependencies": {
