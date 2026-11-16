@@ -14,7 +14,7 @@
     "@react-spring/web": "9.7.5",
     "csstype": "3.2.3",
     "d3-color": "3.1.0",
-    "d3-force": "3.0.0",
+    "d3-force": "3.0.1",
     "d3-scale": "4.0.2",
     "next": "16.2.12",
     "prop-types": "15.8.1",
